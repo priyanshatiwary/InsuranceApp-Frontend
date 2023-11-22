@@ -33,6 +33,33 @@ import { ManageProfileComponent } from './manage-profile/manage-profile.componen
 import { ManageCustomerComponent } from './manage-customer/manage-customer.component';
 import { ManageDocumentComponent } from './manage-document/manage-document.component';
 
+//ADDED NEW
+import { UpdateAgentComponent } from './update-agent/update-agent.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { AddagentComponent } from './addagent/addagent.component';
+import { DeleteAgentComponent } from './delete-agent/delete-agent.component';
+import { AddInsuranceSchemeComponent } from './add-insurance-scheme/add-insurance-scheme.component';
+import { UpdateInsuranceSchemeComponent } from './update-insurance-scheme/update-insurance-scheme.component';
+import { DeleteInsuranceSchemeComponent } from './delete-insurance-scheme/delete-insurance-scheme.component';
+import { AddInsurancePlanComponent } from './add-insurance-plan/add-insurance-plan.component';
+import { UpdateInsurancePlanComponent } from './update-insurance-plan/update-insurance-plan.component';
+import { DeleteInsurancePlanComponent } from './delete-insurance-plan/delete-insurance-plan.component';
+/*
+import { AddInsuranceSchemeComponent } from './add-insurance-scheme/add-insurance-scheme.component';
+import { UpdateInsuranceSchemeComponent } from './update-insurance-scheme/update-insurance-scheme.component';
+import { DeleteInsuranceSchemeComponent } from './delete-insurance-scheme/delete-insurance-scheme.component';
+import { AddInsurancePlanComponent } from './add-insurance-plan/add-insurance-plan.component';
+import { UpdateInsurancePlanComponent } from './update-insurance-plan/update-insurance-plan.component';
+import { DeleteInsurancePlanComponent } from './delete-insurance-plan/delete-insurance-plan.component';
+import { AddagentComponent } from './addagent/addagent.component';
+import { UpdateAgentComponent } from './update-agent/update-agent.component';
+import { DeleteAgentComponent } from './delete-agent/delete-agent.component';
+*/
 
 
 
@@ -67,12 +94,32 @@ import { ManageDocumentComponent } from './manage-document/manage-document.compo
     ManageProfileComponent,
     ManageCustomerComponent,
     ManageDocumentComponent,
-
+    UpdateAgentComponent,
+    AddagentComponent,
+    DeleteAgentComponent,
+    AddInsuranceSchemeComponent,
+    UpdateInsuranceSchemeComponent,
+    DeleteInsuranceSchemeComponent,
+    AddInsurancePlanComponent,
+    UpdateInsurancePlanComponent,
+    DeleteInsurancePlanComponent,
+/*
+    AddInsuranceSchemeComponent,
+    UpdateInsuranceSchemeComponent,
+    DeleteInsuranceSchemeComponent,
+    AddInsurancePlanComponent,
+    UpdateInsurancePlanComponent,
+    DeleteInsurancePlanComponent,
+    AddagentComponent,
+    UpdateAgentComponent,
+    DeleteAgentComponent,
+*/
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,HttpClientModule
+    AppRoutingModule,ReactiveFormsModule,HttpClientModule, BrowserAnimationsModule,
+    MatButtonModule,MatDialogModule,MatIconModule,MatToolbarModule,FormsModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass: JwtInterceptor,

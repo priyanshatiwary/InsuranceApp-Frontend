@@ -30,6 +30,8 @@ import { ManageProfileComponent } from './manage-profile/manage-profile.componen
 import { ManageCustomerComponent } from './manage-customer/manage-customer.component';
 import { ManageDocumentComponent } from './manage-document/manage-document.component';
 
+import { UpdateAgentComponent } from './update-agent/update-agent.component';
+
 
  
 
@@ -55,6 +57,7 @@ const routes: Routes = [
   { path: 'customer', component:CustomerComponent},
   { path: 'logoutnavigation', component:LogoutNavigationComponent},
   { path: 'logout', component:LogoutComponent},
+  
 /*
   { path: 'manage-agent', component: ManageAgentComponent },
     { path: 'manage-employee', component: ManageEmployeeComponent },
@@ -72,6 +75,10 @@ const routes: Routes = [
   { path: 'employee/manage-agent', component: ManageAgentComponent },
   { path: 'employee/manage-customer', component: ManageCustomerComponent },
   { path: 'employee/manage-document', component: ManageDocumentComponent },
+
+  //Agent 
+
+
 
 ];
 
