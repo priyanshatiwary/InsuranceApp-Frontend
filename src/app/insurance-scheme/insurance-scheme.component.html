@@ -1,0 +1,26 @@
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+<div class="container"><br>
+    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;">Insurance Scheme Information</h1>
+    <div style="float: left; width: 45%;">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Scheme Id</th>
+                    <th>Scheme Name</th>
+                    <th>Scheme Detail Id</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let insurance of insuranceData">
+                    <td>{{ insurance.schemeId }}</td>
+                    <td>{{ insurance.schemeName }}</td>
+                    <td>{{ insurance.detailsId }}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

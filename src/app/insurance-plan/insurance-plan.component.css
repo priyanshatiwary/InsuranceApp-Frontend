@@ -1,0 +1,57 @@
+.insurance-plans {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgb(199, 221, 247);
+  }
+  
+  .insurance-plan-item {
+    width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .insurance-plan-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .insurance-plan-item img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .plan-details {
+    margin-top: 10px;
+  }
+  
+  .disease-info {
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  .coverage-types {
+    margin-top: 10px;
+  }
+  
+  .coverage-types strong {
+    color: #007bff;
+  }
+  
+  .coverage-types ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .coverage-types ul li {
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
