@@ -1,4 +1,4 @@
-/* .manage-employee-container {
+.manage-insurance-scheme-container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -7,7 +7,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .manage-employee-container h2 {
+  .manage-insurance-scheme-container h2 {
     text-align: center;
     color: #333;
   }
@@ -27,10 +27,7 @@
   
   button:hover {
     background-color: #2980b9;
-  } */
-  
-  .example-spacer {
-    flex: 1 1 auto;
   }
-
+  
+  /* You can customize the styles further based on your application's design */
   

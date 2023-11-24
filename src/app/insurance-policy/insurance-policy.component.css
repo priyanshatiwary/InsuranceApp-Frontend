@@ -1,4 +1,4 @@
-.insurance-policies {
+/* .insurance-policies {
     display: flex;
     justify-content: space-around;
     padding: 20px;
@@ -40,6 +40,9 @@
   
   .policy-features {
     margin-top: 10px;
+  } */
+  .example-spacer {
+    flex: 1 1 auto;
   }
   
   .policy-features strong {

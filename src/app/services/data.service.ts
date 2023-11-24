@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
   private _userName:string = "";
- // private _userId :number = 0;
+ private _userId :number = 0;
   set userName(value:string){
     this._userName=value;
   }
@@ -13,12 +13,12 @@ export class DataService {
     return this._userName;
   }
 
-  // set userId(value:number){
-  //   this._userId=value;
-  // }
-  // get userId():number{
-  //   return this._userId;
-  // }
+  set userId(value:number){
+    this._userId=value;
+  }
+  get userId():number{
+    return this._userId;
+  }
   
    constructor() { }
   }

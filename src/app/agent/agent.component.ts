@@ -12,12 +12,13 @@ import { AgentService } from '../services/agent-services.service';
   styleUrls: ['./agent.component.css']
 })
 export class AgentComponent {
-  agentData: any;
+  agentData: any
 
   constructor(private agentService: AgentService, private router: Router, private dialog: MatDialog) {
+    //debugger
     this.agentService.getAllAgent().subscribe((data) => {
       this.agentData = data;
-      console.log(data);
+      console.log("Data",data);
     });
   }
   

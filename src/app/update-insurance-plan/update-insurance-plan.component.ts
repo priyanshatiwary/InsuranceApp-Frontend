@@ -31,6 +31,7 @@ export class UpdateInsurancePlanComponent {
   }
 
   updateInsurancePlanData(data: any) {
+    data.isActive = data.isActive === 'true';
     this.insuranceService.updateInsurancePlan(data).subscribe({
       next: (result) => {
         alert("Insurance plan updated Successfully");

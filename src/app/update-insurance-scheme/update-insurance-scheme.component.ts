@@ -35,7 +35,7 @@ export class UpdateInsuranceSchemeComponent {
   updateInsuranceSchemeData(data:any){
     this.insuranceService.updateInsuranceScheme(data).subscribe({
       next:(result)=>{
-        alert("Student data updated Successfully")
+        alert("Insurance Scheme updated Successfully")
         console.log(result)
         this.updateInsuranceScheme.reset()
       },

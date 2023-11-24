@@ -1,7 +1,11 @@
 // manage-employee.component.ts
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { EmployeeService } from '../services/employee.service';
+import { AddEmployeeComponent } from '../add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
+import { DeleteEmployeeComponent } from '../delete-employee/delete-employee.component';
 
 @Component({
   selector: 'app-manage-employee',
@@ -9,31 +13,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./manage-employee.component.css']
 })
 export class ManageEmployeeComponent {
+  empData:any
 
-  constructor(private router: Router) {}
-
-  // Add Employee
-  addEmployee(): void {
-    // Implement logic to navigate to the page for adding an employee
-    this.router.navigate(['/admin/manage-employee/add']); // Adjust the route as needed
+  constructor(private empService:EmployeeService,private dialog: MatDialog,private router:Router) {
+    this.empService.getAllemployee().subscribe((data)=>{
+      this.empData=data
+      console.log(this.empData)
+    })
   }
 
-  // Update Employee
-  updateEmployee(): void {
-    // Implement logic to navigate to the page for updating an employee
-    this.router.navigate(['/admin/manage-employee/update']); // Adjust the route as needed
+  openAddEmpDialog(){
+    this.dialog.open(AddEmployeeComponent)
+  }
+  openUpdateEmpDialog(){
+    this.dialog.open(UpdateEmployeeComponent)
+  }
+  openDeleteEmpDialog(){
+    this.dialog.open(DeleteEmployeeComponent)
   }
 
-  // Delete Employee
-  deleteEmployee(): void {
-    // Implement logic to delete an employee
-    console.log('Delete Employee clicked');
-    // You might want to show a confirmation dialog or directly send a request to delete the employee
-  }
-
-  // View All Employees
-  viewAllEmployees(): void {
-    // Implement logic to navigate to the page for viewing all employees
-    this.router.navigate(['/admin/manage-employee/view-all']); // Adjust the route as needed
-  }
+  
 }

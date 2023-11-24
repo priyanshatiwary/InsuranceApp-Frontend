@@ -49,6 +49,14 @@ import { DeleteInsuranceSchemeComponent } from './delete-insurance-scheme/delete
 import { AddInsurancePlanComponent } from './add-insurance-plan/add-insurance-plan.component';
 import { UpdateInsurancePlanComponent } from './update-insurance-plan/update-insurance-plan.component';
 import { DeleteInsurancePlanComponent } from './delete-insurance-plan/delete-insurance-plan.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { DeletePolicyComponent } from './delete-policy/delete-policy.component';
+import { UpdatePolicyComponent } from './update-policy/update-policy.component';
+import { AddpolicyComponent } from './addpolicy/addpolicy.component';
+import { ManageInusrancePolicyComponent } from './manage-inusrance-policy/manage-inusrance-policy.component';
+
 /*
 import { AddInsuranceSchemeComponent } from './add-insurance-scheme/add-insurance-scheme.component';
 import { UpdateInsuranceSchemeComponent } from './update-insurance-scheme/update-insurance-scheme.component';
@@ -60,7 +68,10 @@ import { AddagentComponent } from './addagent/addagent.component';
 import { UpdateAgentComponent } from './update-agent/update-agent.component';
 import { DeleteAgentComponent } from './delete-agent/delete-agent.component';
 */
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -103,6 +114,13 @@ import { DeleteAgentComponent } from './delete-agent/delete-agent.component';
     AddInsurancePlanComponent,
     UpdateInsurancePlanComponent,
     DeleteInsurancePlanComponent,
+    AddEmployeeComponent,
+    UpdateEmployeeComponent,
+    DeleteEmployeeComponent,
+    DeletePolicyComponent,
+    UpdatePolicyComponent,
+    AddpolicyComponent,
+    ManageInusrancePolicyComponent,
 /*
     AddInsuranceSchemeComponent,
     UpdateInsuranceSchemeComponent,
@@ -119,7 +137,10 @@ import { DeleteAgentComponent } from './delete-agent/delete-agent.component';
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,HttpClientModule, BrowserAnimationsModule,
-    MatButtonModule,MatDialogModule,MatIconModule,MatToolbarModule,FormsModule
+    MatButtonModule,MatDialogModule,MatIconModule,MatToolbarModule,FormsModule,    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass: JwtInterceptor,

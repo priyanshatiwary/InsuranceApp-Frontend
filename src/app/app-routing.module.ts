@@ -57,9 +57,9 @@ const routes: Routes = [
   { path: 'customer', component:CustomerComponent},
   { path: 'logoutnavigation', component:LogoutNavigationComponent},
   { path: 'logout', component:LogoutComponent},
+  { path: 'manage-agent', component: ManageAgentComponent },
   
 /*
-  { path: 'manage-agent', component: ManageAgentComponent },
     { path: 'manage-employee', component: ManageEmployeeComponent },
     { path: 'manage-insurance-plan', component: ManageInsurancePlanComponent },
     { path: 'manage-insurance-scheme', component: ManageInsuranceSchemeComponent },

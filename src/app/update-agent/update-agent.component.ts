@@ -10,6 +10,7 @@ import { AgentService } from '../services/agent-services.service';
   templateUrl: './update-agent.component.html',
   styleUrls: ['./update-agent.component.css']
 })
+
 export class UpdateAgentComponent {
   editAgentForm = new FormGroup({
     agentId: new FormControl('', Validators.required),
@@ -23,7 +24,6 @@ export class UpdateAgentComponent {
     isActive: new FormControl('', Validators.required),
   })
 
-  
   get agentIdValidator(){
     return this.editAgentForm.get('agentId')
   }
@@ -52,18 +52,27 @@ export class UpdateAgentComponent {
     return this.editAgentForm.get('isActive')
   }
 
-  //agentData:any
-  
+  agentData:any
+  agent: any = [{}]
+
   constructor(private auth:AgentService, private router: Router) { 
-    // auth.getAllAgent().subscribe((data)=>{
-    //   this.agentData=data
-    // })
+    this.auth.getAllAgent().subscribe((data)=>{
+      this.agentData=data
+      console.log(this.agentData)
+    })
   }
-  
-  // getSelectedAgent($event){
-  //   this.auth.getAllAgentBuId(event?.target.value)
-  // }
+  getSelectedAgent(event:any){
+   this.auth.getAllAgentBuId(event.target.value).subscribe((data)=>{
+    this.agent=data
+   })
+  }
+
   editAgent(formData: any) {
-    this.auth.updateAgent(formData).subscribe({})
+    formData.isActive = formData.isActive === 'true';
+    this.auth.updateAgent(formData).subscribe({
+      next:(response)=>{
+        alert("Agent updated successfully")
+      }
+    })
   }
 }
