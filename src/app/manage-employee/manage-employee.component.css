@@ -1,4 +1,4 @@
-.manage-employee-container {
+/* .manage-employee-container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -27,7 +27,10 @@
   
   button:hover {
     background-color: #2980b9;
-  }
+  } */
   
-  /* You can customize the styles further based on your application's design */
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
   

@@ -1,0 +1,43 @@
+<div class="container">
+    <h2 mat-dialog-title>Add Scheme Detail</h2>
+    <mat-dialog-content class="mat-typography">
+        <br>
+        <form [formGroup]="addSchemeDetail" 
+        (ngSubmit)="addNewSchemeDetail(addSchemeDetail.value)" class="example-form">
+
+            Scheme Image:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="schemeImage" placeholder="Enter Scheme Image"><br>
+            
+            Description:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="description" placeholder="Enter Description"><br>
+
+            Minimum Amount:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minAmount" placeholder="Enter Minimum Amount"><br>
+
+            Maximum Amount:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxAmount" placeholder="Enter Maximum Amount"><br>
+
+            Minimum Investment Time:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minInvestmentTime" placeholder="Enter Minimum Investment Time"><br>
+
+            Maximum Investment Time:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxInvestmentTime" placeholder="Enter Maximum Investment Time"><br>
+
+            Minimum Age:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minAge" placeholder="Enter Minimum Age"><br>
+
+            Maximum Age:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxAge" placeholder="Enter Maximum Age"><br>
+
+            Profit Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="profitRatio" placeholder="Enter Profit Ratio"><br>
+
+            Registration Commission Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="registrationCommRatio" placeholder="Enter Register Commission Ratio"><br>
+
+            Installment Commission Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="installmentCommRatio" placeholder="Enter Installment Commission Ratio"><br>
+           
+            
+            <input class="form-check-input" placeholder="IsActive" type="radio" formControlName="isActive" value="true">&nbsp;True&nbsp;&nbsp;
+            <input class="form-check-input" type="radio" formControlName="isActive" value="false">&nbsp;False<br><br>
+
+            <button>Submit</button>
+
+        </form>
+
+    </mat-dialog-content>
+    <mat-dialog-actions [align]="'end'" style="padding: 30px;">
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+
+    </mat-dialog-actions>
+</div>

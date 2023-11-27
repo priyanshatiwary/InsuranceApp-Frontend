@@ -16,8 +16,20 @@ export class AdminComponent {
   navigateTo(route: string): void {
     this.router.navigate([`/admin/${route}`]);
   }
+  openPolicy(){
+    this.router.navigateByUrl('/insurance-policy')
+  }
+  openSchemeDetail(){
+    this.router.navigateByUrl('/scheme-detail');
+  }
 
-  
+  openCustomerDetail(){
+    this.router.navigateByUrl('/customer');
+  }
+
+  openQueryDetail(){
+    this.router.navigateByUrl('/query');
+  }
   /*
   navigateTo(option: string) {
     switch (option) {

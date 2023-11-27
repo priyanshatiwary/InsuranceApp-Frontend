@@ -1,4 +1,56 @@
-<app-header></app-header>
+<app-logout-navigation></app-logout-navigation>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
-<p>scheme-detail works!</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<br><br>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>Welcome to Scheme Details </span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="openAddSchemeDetailDialog()" color="accent">Add Scheme Detail</button>
+    &nbsp;&nbsp;
+    <button mat-raised-button (click)="openUpdateSchemeDetailDialog()" color="accent">Update Scheme Detail</button>
+    &nbsp;&nbsp;
+    <button mat-raised-button (click)="openDeleteSchemeDetailDialog()" color="accent">Delete Scheme Detail</button>
+    &nbsp;&nbsp;
+</mat-toolbar>
+<div class="container"><br>
+    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> Scheme Detail Data</h1>
+    <div style="float: left; width: 45%;">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Detail ID</th><br><br>
+                    <th>Scheme Image</th><br><br>
+                    <th>Description</th><br><br>
+                    <th>Minimum Amount</th><br><br>
+                    <th>Maximum Amount</th><br><br>
+                    <th>Minimum Investment Time</th><br><br>
+                    <th>Maximum Investment Time</th> <br><br>
+                    <th>Minimum Age</th><br><br>
+                    <th>Maximum Age</th> <br><br>
+                    <th>Profit Ratio</th> <br><br>
+                    <th>Registration Commission Ratio</th> <br><br>
+                    <th>Installment Commission Ratio</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let insurance of detailData">
+                    <td>{{ insurance.detailId }}</td><br>
+                    <td>{{ insurance.schemeImage }}</td><br>
+                    <td>{{ insurance.description }}</td><br>
+                    <td>{{ insurance.minAmount }}</td><br>
+                    <td>{{ insurance.maxAmount }}</td><br>
+                    <td>{{ insurance.minInvestmentTime }}</td><br>
+                    <td>{{ insurance.maxInvestmentTime }}</td><br>
+                    <td>{{ insurance.minAge }}</td><br>
+                    <td>{{ insurance.maxAge }}</td><br>
+                    <td>{{ insurance.profitRatio }}</td><br>
+                    <td>{{ insurance.registrationCommRatio }}</td><br> 
+                    <td>{{ insurance.installmentCommRatio }}</td> <br>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

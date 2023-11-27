@@ -33,7 +33,50 @@ import { ManageProfileComponent } from './manage-profile/manage-profile.componen
 import { ManageCustomerComponent } from './manage-customer/manage-customer.component';
 import { ManageDocumentComponent } from './manage-document/manage-document.component';
 
+//ADDED NEW
+import { UpdateAgentComponent } from './update-agent/update-agent.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { AddagentComponent } from './addagent/addagent.component';
+import { DeleteAgentComponent } from './delete-agent/delete-agent.component';
+import { AddInsuranceSchemeComponent } from './add-insurance-scheme/add-insurance-scheme.component';
+import { UpdateInsuranceSchemeComponent } from './update-insurance-scheme/update-insurance-scheme.component';
+import { DeleteInsuranceSchemeComponent } from './delete-insurance-scheme/delete-insurance-scheme.component';
+import { AddInsurancePlanComponent } from './add-insurance-plan/add-insurance-plan.component';
+import { UpdateInsurancePlanComponent } from './update-insurance-plan/update-insurance-plan.component';
+import { DeleteInsurancePlanComponent } from './delete-insurance-plan/delete-insurance-plan.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { DeletePolicyComponent } from './delete-policy/delete-policy.component';
+import { UpdatePolicyComponent } from './update-policy/update-policy.component';
+import { AddpolicyComponent } from './addpolicy/addpolicy.component';
+import { ManageInusrancePolicyComponent } from './manage-inusrance-policy/manage-inusrance-policy.component';
 
+/*
+import { AddInsuranceSchemeComponent } from './add-insurance-scheme/add-insurance-scheme.component';
+import { UpdateInsuranceSchemeComponent } from './update-insurance-scheme/update-insurance-scheme.component';
+import { DeleteInsuranceSchemeComponent } from './delete-insurance-scheme/delete-insurance-scheme.component';
+import { AddInsurancePlanComponent } from './add-insurance-plan/add-insurance-plan.component';
+import { UpdateInsurancePlanComponent } from './update-insurance-plan/update-insurance-plan.component';
+import { DeleteInsurancePlanComponent } from './delete-insurance-plan/delete-insurance-plan.component';
+import { AddagentComponent } from './addagent/addagent.component';
+import { UpdateAgentComponent } from './update-agent/update-agent.component';
+import { DeleteAgentComponent } from './delete-agent/delete-agent.component';
+*/
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { AddSchemeDetailComponent } from './add-scheme-detail/add-scheme-detail.component';
+import { UpdateSchemeDetailComponent } from './update-scheme-detail/update-scheme-detail.component';
+import { DeleteSchemeDetailComponent } from './delete-scheme-detail/delete-scheme-detail.component';
+import { NavbarForEmpComponent } from './navbar-for-emp/navbar-for-emp.component';
+import { QueryComponent } from './query/query.component';
 
 
 
@@ -67,12 +110,47 @@ import { ManageDocumentComponent } from './manage-document/manage-document.compo
     ManageProfileComponent,
     ManageCustomerComponent,
     ManageDocumentComponent,
-
+    UpdateAgentComponent,
+    AddagentComponent,
+    DeleteAgentComponent,
+    AddInsuranceSchemeComponent,
+    UpdateInsuranceSchemeComponent,
+    DeleteInsuranceSchemeComponent,
+    AddInsurancePlanComponent,
+    UpdateInsurancePlanComponent,
+    DeleteInsurancePlanComponent,
+    AddEmployeeComponent,
+    UpdateEmployeeComponent,
+    DeleteEmployeeComponent,
+    DeletePolicyComponent,
+    UpdatePolicyComponent,
+    AddpolicyComponent,
+    ManageInusrancePolicyComponent,
+    AddSchemeDetailComponent,
+    UpdateSchemeDetailComponent,
+    DeleteSchemeDetailComponent,
+    NavbarForEmpComponent,
+    QueryComponent,
+/*
+    AddInsuranceSchemeComponent,
+    UpdateInsuranceSchemeComponent,
+    DeleteInsuranceSchemeComponent,
+    AddInsurancePlanComponent,
+    UpdateInsurancePlanComponent,
+    DeleteInsurancePlanComponent,
+    AddagentComponent,
+    UpdateAgentComponent,
+    DeleteAgentComponent,
+*/
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,HttpClientModule
+    AppRoutingModule,ReactiveFormsModule,HttpClientModule, BrowserAnimationsModule,
+    MatButtonModule,MatDialogModule,MatIconModule,MatToolbarModule,FormsModule,    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass: JwtInterceptor,

@@ -64,13 +64,19 @@ export class LoginComponent {
         //admin or emp??
         if(this.user.roleName=="Admin")
           this.router.navigateByUrl("/admin");
-        else
+        if(this.user.roleName=="Employee")
           this.router.navigateByUrl("/employee");
+        if(this.user.roleName=="Customer")
+          this.router.navigateByUrl("/customer");
+        // else
+        //   this.router.navigateByUrl("/agent");
       },
       error:(errorResponse : HttpErrorResponse)=>{
         console.log("ErrorResponse : ",errorResponse)
       }
     })
   }
-
+  logout(){
+    localStorage.removeItem("token");
+  }
 }

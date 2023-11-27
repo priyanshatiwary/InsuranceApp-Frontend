@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { AgentComponent } from '../agent/agent.component';
 
 @Component({
   selector: 'app-employee',
@@ -16,6 +17,9 @@ export class EmployeeComponent {
   }
   navigateTo(route: string): void {
     this.router.navigate([`/employee/${route}`]);
+  }
+  openCustomer(){
+    this.router.navigateByUrl('/customer');
   }
 }
 

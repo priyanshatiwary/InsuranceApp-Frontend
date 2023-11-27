@@ -1,0 +1,44 @@
+<div class="container">
+    <h2 mat-dialog-title>Update Scheme Detail</h2>
+    <mat-dialog-content class="mat-typography">
+        <select (change)="getSelectedDetail($event)">
+            <option *ngFor="let schemeDetailId of schemeDetailData" value="{{schemeDetailId?.detailId}}">{{schemeDetailId.detailId}}</option>
+        </select>
+        <form [formGroup]="updateSchemeDetail" (ngSubmit)="updateSchemeDetailData(updateSchemeDetail.value)" class="example-form">
+            
+            Detail ID:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="detailId" [(ngModel)]="detail.detailId" placeholder="Enter Detail Id"><br>
+
+            Scheme Image:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="schemeImage" [(ngModel)]="detail.schemeImage" placeholder="Enter Scheme Image"><br>
+            
+            Description:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="description" [(ngModel)]="detail.description" placeholder="Enter Description"><br>
+
+            Minimum Amount:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minAmount" [(ngModel)]="detail.minAmount" placeholder="Enter Minimum Amount"><br>
+
+            Maximum Amount:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxAmount" [(ngModel)]="detail.maxAmount" placeholder="Enter Maximum Amount"><br>
+
+            Minimum Investment Time:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minInvestmentTime" [(ngModel)]="detail.minInvestmentTime" placeholder="Enter Minimum Investment Time"><br>
+
+            Maximum Investment Time:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxInvestmentTime" [(ngModel)]="detail.maxInvestmentTime" placeholder="Enter Maximum Investment Time"><br>
+
+            Minimum Age:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minAge" [(ngModel)]="detail.minAge" placeholder="Enter Minimum Age"><br>
+
+            Maximum Age:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxAge" [(ngModel)]="detail.maxAge" placeholder="Enter Maximum Age"><br>
+
+            Profit Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="profitRatio" [(ngModel)]="detail.profitRatio" placeholder="Enter Profit Ratio"><br>
+
+            Registration Commission Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="registrationCommRatio" [(ngModel)]="detail.registrationCommRatio" placeholder="Enter Register Commission Ratio"><br>
+
+            Installment Commission Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="installmentCommRatio" [(ngModel)]="detail.installmentCommRatio" placeholder="Enter Installment Commission Ratio"><br>
+            
+            <input class="form-check-input" type="radio" formControlName="isActive" value="true" checked>&nbsp;True&nbsp;
+            <input class="form-check-input" type="radio" formControlName="isActive" value="false">&nbsp;False<br><br>
+            
+            <button>Update</button>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions [align]="'end'" style="padding: 30px;">
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        <!-- <button mat-raised-button color="primary">Save</button> -->
+
+    </mat-dialog-actions>
+</div>

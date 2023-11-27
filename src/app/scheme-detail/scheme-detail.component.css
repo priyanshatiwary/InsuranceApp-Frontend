@@ -1,0 +1,17 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .policy-features strong {
+    color: #007bff;
+  }
+  
+  .policy-features ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .policy-features ul li {
+    margin-bottom: 5px;
+    color: #555;
+  }
