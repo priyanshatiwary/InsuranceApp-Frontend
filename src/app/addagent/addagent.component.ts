@@ -55,6 +55,10 @@ export class AddagentComponent {
     this.auth.addAgent(formData).subscribe({
       next:(response)=>{
         alert("Agent added successfully")
+      },
+      error:(err:HttpErrorResponse)=>{
+        alert("Please put proper values")
+        console.log(err)
       }
     })
   }

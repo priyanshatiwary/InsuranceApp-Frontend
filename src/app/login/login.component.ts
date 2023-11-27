@@ -68,8 +68,8 @@ export class LoginComponent {
           this.router.navigateByUrl("/employee");
         if(this.user.roleName=="Customer")
           this.router.navigateByUrl("/customer");
-        else
-          this.router.navigateByUrl("/agent");
+        // else
+        //   this.router.navigateByUrl("/agent");
       },
       error:(errorResponse : HttpErrorResponse)=>{
         console.log("ErrorResponse : ",errorResponse)

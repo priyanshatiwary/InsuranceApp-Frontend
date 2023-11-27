@@ -22,7 +22,8 @@ export class InsurancePolicyComponent {
   getAllInsurancePolicy(){
     this.insurancePolicy.getAllInsurancePolicy().subscribe((data)=>{
       this.insurancePolicyData=data
-      next:(res:any)=>{       
+      next:(res:any)=>{  
+             
       }
       error:(err:any)=>{
         console.log(err)

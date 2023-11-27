@@ -16,7 +16,7 @@
     &nbsp;&nbsp;
 </mat-toolbar>
 <div class="container"><br>
-    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;">Insurance Plan Information</h1>
+    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;">Insurance Policy Information</h1>
     <div style="float: left; width: 45%;">
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
@@ -29,10 +29,10 @@
                     <th>Sum Assured</th>
                     <th>Status</th> 
                     <!-- <th>Active Status</th>  -->
-                    <th>Scheme Id</th> 
-                    <th>claim Id</th> 
-                    <th>payment Id</th> 
-                    <!-- <th>Customer Id</th>  -->
+                    <th>Plan Id</th> 
+                    <!-- <th>claim Id</th>  -->
+                    <!-- <th>Scheme Id</th> 
+                    <th>Customer Id</th>  -->
                 </tr>
             </thead>
             <tbody>
@@ -45,10 +45,11 @@
                     <td>{{ insurance.sumAssured }}</td>
                     <td>{{ insurance.status }}</td>
                     <!-- <td>{{ insurance.isActive }}</td> -->
-                    <td>{{ insurance.schemeId }}</td>
-                    <td>{{ insurance.claimId }}</td>
-                    <td>{{ insurance.paymentId }}</td> 
-                    <!-- <td>{{ insurance.customerId }}</td>  -->
+                    <td>{{ insurance.planId }}</td>
+                    <!-- <td>{{ insurance.claimId }}</td>
+                    <td>{{ insurance.paymentId }}</td>  -->
+                    <!-- <td>{{ insurance.schemeId }}</td> 
+                    <td>{{ insurance.customerId }}</td>  -->
                 </tr>
             </tbody>
         </table>

@@ -24,6 +24,8 @@ import { ManageAgentComponent } from './manage-agent/manage-agent.component';
 import { ManageEmployeeComponent } from './manage-employee/manage-employee.component';
 import { ManageInsurancePlanComponent } from './manage-insurance-plan/manage-insurance-plan.component';
 import { ManageInsuranceSchemeComponent } from './manage-insurance-scheme/manage-insurance-scheme.component';
+import { ManageInusrancePolicyComponent } from './manage-inusrance-policy/manage-inusrance-policy.component';
+import { QueryComponent } from './query/query.component';
 //Employee Modules
 import { ManageProfileComponent } from './manage-profile/manage-profile.component';
 /*import { ManageAgentComponent } from './manage-agent/manage-agent.component'; */ //alreday there in admin
@@ -58,6 +60,7 @@ const routes: Routes = [
   { path: 'logoutnavigation', component:LogoutNavigationComponent},
   { path: 'logout', component:LogoutComponent},
   { path: 'manage-agent', component: ManageAgentComponent },
+
   
 /*
     { path: 'manage-employee', component: ManageEmployeeComponent },
@@ -69,6 +72,8 @@ const routes: Routes = [
   { path: 'admin/manage-employee', component: ManageEmployeeComponent },
   { path: 'admin/manage-insurance-plan', component: ManageInsurancePlanComponent },
   { path: 'admin/manage-insurance-scheme', component: ManageInsuranceSchemeComponent },
+  { path: 'admin/manage-insurance-policy',component:InsurancePolicyComponent},
+  { path: 'query',component:QueryComponent},
   //Employee Modules
 
   { path: 'employee/manage-profile', component: ManageProfileComponent },

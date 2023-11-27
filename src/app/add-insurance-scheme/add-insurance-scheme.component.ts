@@ -28,6 +28,7 @@ export class AddInsuranceSchemeComponent {
         this.addInsuranceScheme.reset()
       },
       error:(errorResponse:HttpErrorResponse)=>{
+        alert("Please put proper data")
         console.log(errorResponse)
       }
     })

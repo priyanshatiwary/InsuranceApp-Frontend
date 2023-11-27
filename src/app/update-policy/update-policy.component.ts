@@ -11,23 +11,21 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class UpdatePolicyComponent {
   updateInsurancePolicy= new FormGroup({
     policyNo:new FormControl(''),
-    issueData:new FormControl(''),
+    issueDate:new FormControl(''),
     maturityDate:new FormControl(''),
     premiumType:new FormControl(''),
     premiumAmount:new FormControl(''),
     sumAssured:new FormControl(''),
     status:new FormControl(''),
     isActive:new FormControl(''),
-    schemeId:new FormControl(''),
-    claimId:new FormControl(''),
-    paymentId:new FormControl(''),
-    customerId:new FormControl('')
+    planId:new FormControl('')
+ 
   })
 
   insurancePolicyData:any
    policy:any=[{}]
   constructor(private insuranceService:PolicyService,private router:Router){
-    insuranceService.getAllInsurancePolicy().subscribe((data)=>{
+    this.insuranceService.getAllInsurancePolicy().subscribe((data)=>{
       this.insurancePolicyData=data
     })
   }
@@ -35,7 +33,7 @@ export class UpdatePolicyComponent {
   getSelectedPolicy(event:any){
     this.insuranceService.getInsurancePolicyById(event.target.value).subscribe((data)=>{
       this.policy=data
-      console.log("schemeId",this.policy)
+      
     })
   }
 
@@ -49,7 +47,8 @@ export class UpdatePolicyComponent {
       },
       error: (errorResponse: HttpErrorResponse) => {
         console.log(errorResponse);
-      },
+        alert("Please put proper Data");
+      }
     });
   }
 }

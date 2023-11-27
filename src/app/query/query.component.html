@@ -1,0 +1,46 @@
+
+<app-logout-navigation></app-logout-navigation>
+<router-outlet></router-outlet>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<br><br>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>Welcome View Query </span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-raised-button (click)="openAddAgentDialog()" color="accent">Add Agent</button>
+    &nbsp;&nbsp;
+    <button mat-raised-button (click)="openUpdateAgentDialog()" color="accent">Update Agent </button>
+    &nbsp;&nbsp;
+    <button mat-raised-button (click)="openAgentPlanDialog()" color="accent">Delete Agent </button>
+    &nbsp;&nbsp; -->
+</mat-toolbar>
+<div class="container"><br>
+    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> View Query</h1>
+    <div style="float: left; width: 45%;">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Query Id</th><br><br>
+                    <th>Name</th><br><br>
+                    <th>Email</th><br><br>
+                    <th>Message</th><br><br>
+                    <th>customer Id</th><br><br>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let query of queryData">
+                    <td>{{ query.queryId }}</td><br>
+                    <td>{{ query.name }}</td><br>
+                    <td>{{ query.email }}</td><br>
+                    <td>{{ query.message }}</td><br>
+                    <td>{{ query.customerId }}</td><br>
+                    <!-- <td>{{ agent.isActive }}</td><br> -->
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

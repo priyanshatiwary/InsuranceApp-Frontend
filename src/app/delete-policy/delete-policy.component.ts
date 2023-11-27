@@ -27,6 +27,7 @@ export class DeletePolicyComponent {
         console.log(response)
       },
       error:(error:HttpErrorResponse)=>{
+        alert("Error occur while deleting policy")
         console.log(error)
       }
     })

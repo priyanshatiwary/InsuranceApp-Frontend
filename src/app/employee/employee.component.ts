@@ -18,6 +18,9 @@ export class EmployeeComponent {
   navigateTo(route: string): void {
     this.router.navigate([`/employee/${route}`]);
   }
+  openCustomer(){
+    this.router.navigateByUrl('/customer');
+  }
 }
 
   

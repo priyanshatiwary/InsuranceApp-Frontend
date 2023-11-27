@@ -17,10 +17,7 @@ export class AddpolicyComponent {
     sumAssured:new FormControl(''),
     status:new FormControl(''),
     isActive:new FormControl(''),
-    schemeId:new FormControl(''),
-    claimId:new FormControl(''),
-    paymentId:new FormControl(''),
-    customerId:new FormControl('')
+    planId:new FormControl('')
   })
   constructor(private insuranceService:PolicyService,private router:Router){}
   addNewInsurancePolicy(data:any){
@@ -34,17 +31,7 @@ export class AddpolicyComponent {
       },
       error:(errorResponse:HttpErrorResponse)=>{
         console.log(errorResponse)
-        if (errorResponse.error instanceof ErrorEvent) {
-          // A client-side or network error occurred.
-          console.error('An error occurred:', errorResponse.error.message);
-        } else {
-          // The backend returned an unsuccessful response code.
-          // The response body may contain clues as to what went wrong.
-          console.error(
-            `Backend returned code ${errorResponse.status}, ` +
-            `body was: ${errorResponse.error}`
-          );
-        }
+        alert("Please enter proper Data")
       }
     })
   }

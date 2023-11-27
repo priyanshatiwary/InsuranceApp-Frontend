@@ -72,6 +72,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AddSchemeDetailComponent } from './add-scheme-detail/add-scheme-detail.component';
+import { UpdateSchemeDetailComponent } from './update-scheme-detail/update-scheme-detail.component';
+import { DeleteSchemeDetailComponent } from './delete-scheme-detail/delete-scheme-detail.component';
+import { NavbarForEmpComponent } from './navbar-for-emp/navbar-for-emp.component';
+import { QueryComponent } from './query/query.component';
 
 
 
@@ -121,6 +126,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     UpdatePolicyComponent,
     AddpolicyComponent,
     ManageInusrancePolicyComponent,
+    AddSchemeDetailComponent,
+    UpdateSchemeDetailComponent,
+    DeleteSchemeDetailComponent,
+    NavbarForEmpComponent,
+    QueryComponent,
 /*
     AddInsuranceSchemeComponent,
     UpdateInsuranceSchemeComponent,
