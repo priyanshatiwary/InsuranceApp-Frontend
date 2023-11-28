@@ -24,11 +24,18 @@ export class AdminComponent {
   }
 
   openCustomerDetail(){
-    this.router.navigateByUrl('/customer');
+    this.router.navigateByUrl('/view-customer');
   }
 
   openQueryDetail(){
     this.router.navigateByUrl('/query');
+  }
+
+  openPaymentDetail(){
+    this.router.navigateByUrl('/view-payments');
+  }
+  openClaimDetail(){
+    this.router.navigateByUrl('/view-claim');
   }
   /*
   navigateTo(option: string) {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AddagentComponent } from '../addagent/addagent.component';
 import { UpdateAgentComponent } from '../update-agent/update-agent.component';
 import { DeleteAgentComponent } from '../delete-agent/delete-agent.component';
@@ -18,10 +18,19 @@ export class AgentComponent {
     //debugger
     this.agentService.getAllAgent().subscribe((data) => {
       this.agentData = data;
-      console.log("Data",data);
+      console.log("Data", data);
     });
   }
-  
+  // editAgent(agent: any) {
+
+  //   const dialogRef = this.dialog.open(UpdateAgentComponent, {
+  //     data: agent // Pass the agent data to the dialog
+  //   });
+
+  // }
+  // deleteAgent(agent: any) {
+
+  // }
   openAddAgentDialog() {
     this.dialog.open(AddagentComponent);
   }

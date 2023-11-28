@@ -77,6 +77,21 @@ import { UpdateSchemeDetailComponent } from './update-scheme-detail/update-schem
 import { DeleteSchemeDetailComponent } from './delete-scheme-detail/delete-scheme-detail.component';
 import { NavbarForEmpComponent } from './navbar-for-emp/navbar-for-emp.component';
 import { QueryComponent } from './query/query.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { UpdateCustomerComponent } from './update-customer/update-customer.component';
+import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
+import { ViewClaimComponent } from './view-claim/view-claim.component';
+import { ViewPaymentComponent } from './view-payment/view-payment.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { ViewInsurancePlanComponent } from './view-insurance-plan/view-insurance-plan.component';
+import { ViewInsuranceSchemeComponent } from './view-insurance-scheme/view-insurance-scheme.component';
+import { ViewAgentComponent } from './view-agent/view-agent.component';
+import { ViewCommisionComponent } from './view-commision/view-commision.component';
+import { ViewCommisionWithdrawalComponent } from './view-commision-withdrawal/view-commision-withdrawal.component';
+import { ViewLocationComponent } from './view-location/view-location.component';
+import { UpdateLocationComponent } from './update-location/update-location.component';
+import { AddLocationComponent } from './add-location/add-location.component';
 
 
 
@@ -131,6 +146,21 @@ import { QueryComponent } from './query/query.component';
     DeleteSchemeDetailComponent,
     NavbarForEmpComponent,
     QueryComponent,
+    ViewCustomerComponent,
+    AddCustomerComponent,
+    UpdateCustomerComponent,
+    DeleteCustomerComponent,
+    ViewClaimComponent,
+    ViewPaymentComponent,
+    AdminNavbarComponent,
+    ViewInsurancePlanComponent,
+    ViewInsuranceSchemeComponent,
+    ViewAgentComponent,
+    ViewCommisionComponent,
+    ViewCommisionWithdrawalComponent,
+    ViewLocationComponent,
+    UpdateLocationComponent,
+    AddLocationComponent,
 /*
     AddInsuranceSchemeComponent,
     UpdateInsuranceSchemeComponent,

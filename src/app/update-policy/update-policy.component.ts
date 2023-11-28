@@ -18,7 +18,7 @@ export class UpdatePolicyComponent {
     sumAssured:new FormControl(''),
     status:new FormControl(''),
     isActive:new FormControl(''),
-    planId:new FormControl('')
+    schemeId:new FormControl('')
  
   })
 

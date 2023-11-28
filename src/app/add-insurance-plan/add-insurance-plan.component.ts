@@ -11,7 +11,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AddInsurancePlanComponent {
   addInsurancePlan = new FormGroup({
     planName:new FormControl(''),
-    schemeId:new FormControl(''),
     isActive:new FormControl('')
   })
   constructor(private insuranceService:InsurancePlanService,private router:Router){}

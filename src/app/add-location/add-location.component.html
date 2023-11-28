@@ -1,0 +1,25 @@
+<div class="container">
+    <h2 mat-dialog-title>Add Location</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <form [formGroup]="locform" (ngSubmit)="addLoc(locform.value)" class="example-form">
+            
+            State: <input class="form-control" type="text" placeholder="Enter State" formControlName="state"  >
+            <span *ngIf="stateValidator && stateValidator.invalid && stateValidator.touched">
+                Please enter  state </span>
+            <br><br>
+            City: <input class="form-control" type="text" placeholder="Enter City" formControlName="city" >
+            <span *ngIf="cityValidator && cityValidator.invalid && cityValidator.touched">
+                please enter city</span>
+            <br><br>
+            
+
+            <button mat-raised-button color="warn" type="submit">Add</button>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions [align]="'end'" style="padding: 30px;">
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        <!-- <button mat-raised-button color="primary">Save</button> -->
+
+    </mat-dialog-actions>
+</div>

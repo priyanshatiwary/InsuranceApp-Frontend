@@ -1,4 +1,4 @@
-<app-logout-navigation></app-logout-navigation>
+<app-navbar-for-emp></app-navbar-for-emp>
 <router-outlet></router-outlet>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <br><br>
@@ -8,15 +8,15 @@
     </button>
     <span>Welcome View Customer </span>
     <span class="example-spacer"></span>
-    <!-- <button mat-raised-button (click)="openAddAgentDialog()" color="accent">Add Agent</button>
+    <button mat-raised-button (click)="openAddCustomerDialog()" color="accent">Add Customer</button>
     &nbsp;&nbsp;
-    <button mat-raised-button (click)="openUpdateAgentDialog()" color="accent">Update Agent </button>
+    <button mat-raised-button (click)="openUpdateCustomerDialog()" color="accent">Update Customer </button>
     &nbsp;&nbsp;
-    <button mat-raised-button (click)="openAgentPlanDialog()" color="accent">Delete Agent </button>
-    &nbsp;&nbsp; -->
+    <button mat-raised-button (click)="openDeleteCustomerDialog()" color="accent">Delete Customer </button>
+    &nbsp;&nbsp;
 </mat-toolbar>
 <div class="container"><br>
-    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> View Customer</h1>
+    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> Manage Customer</h1>
     <div style="float: left; width: 45%;">
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">

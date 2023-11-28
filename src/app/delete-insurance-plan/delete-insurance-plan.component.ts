@@ -12,9 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class DeleteInsurancePlanComponent {
   deleteInsurancePlan= new FormGroup({
     planId:new FormControl(''),
-    planName:new FormControl(''),
-    schemeId:new FormControl(''),
-    isActive:new FormControl('')
+    planName:new FormControl('')
   })
    insurancePlanData:any
    plan:any=[{}]

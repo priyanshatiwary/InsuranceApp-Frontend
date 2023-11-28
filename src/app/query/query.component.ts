@@ -14,4 +14,9 @@ export class QueryComponent {
     })
   }
 
+  replyToQuery(query: any) {
+    // You can implement the logic to send the reply to the server or update it locally
+    query.reply = query.adminReply;
+    console.log('Admin replied:', query.adminReply);
+  }
 }

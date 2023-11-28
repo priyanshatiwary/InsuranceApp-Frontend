@@ -22,7 +22,8 @@ export class AddSchemeDetailComponent {
     profitRatio:new FormControl(''),
     registrationCommRatio:new FormControl(''),
     installmentCommRatio:new FormControl(''),
-    isActive:new FormControl('')
+    isActive:new FormControl(''),
+    schemeId:new FormControl('')
 
   })
 

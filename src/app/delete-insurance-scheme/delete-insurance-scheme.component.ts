@@ -12,7 +12,7 @@ export class DeleteInsuranceSchemeComponent {
   deleteInsuranceScheme=new FormGroup({
     schemeId:new FormControl(''),
     schemeName:new FormControl(''),
-    detailId:new FormControl(''),
+    planId:new FormControl(''),
     isActive:new FormControl('')
   })
   insuranceSchemeData:any

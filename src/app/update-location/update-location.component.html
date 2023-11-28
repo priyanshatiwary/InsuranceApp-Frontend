@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 mat-dialog-title>Update Location</h2>
+    <mat-dialog-content class="mat-typography">
+        <select (change)="getSelectedLocation($event)">
+            <option *ngFor="let id of locData" value="{{id?.id}}">{{id.id}}</option>
+        </select>
+        <form [formGroup]="locform" (ngSubmit)="editLoc(locform.value)" class="example-form">
+            Location Id: <input class="form-control" type="number" placeholder=" Location id" formControlName="id" [(ngModel)]="location.id">
+            <span *ngIf="locationIdValidator && locationIdValidator.invalid && locationIdValidator.touched">
+                Please enter valid location id</span>
+            <br><br>
+            State: <input class="form-control" type="text" placeholder="Enter State" formControlName="state" [(ngModel)]="location.state ">
+            <span *ngIf="stateValidator && stateValidator.invalid && stateValidator.touched">
+                Please enter  state </span>
+            <br><br>
+            City: <input class="form-control" type="text" placeholder="Enter City" formControlName="city" [(ngModel)]="location.city">
+            <span *ngIf="cityValidator && cityValidator.invalid && cityValidator.touched">
+                please enter city</span>
+            <br><br>
+            
+
+            <button mat-raised-button color="warn" type="submit">Update</button>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions [align]="'end'" style="padding: 30px;">
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        <!-- <button mat-raised-button color="primary">Save</button> -->
+
+    </mat-dialog-actions>
+</div>
