@@ -13,7 +13,6 @@ export class UpdateInsurancePlanComponent {
   updateInsurancePlan= new FormGroup({
     planId:new FormControl(''),
     planName:new FormControl('',Validators.required),
-    schemeId:new FormControl(''),
     isActive:new FormControl('',Validators.required)
   })
    insurancePlanData:any
@@ -26,7 +25,7 @@ export class UpdateInsurancePlanComponent {
   getSelectedPlan(event:any){
     this.insuranceService.getInsurancePlanById(event.target.value).subscribe((data)=>{
       this.plan=data
-      console.log("schemeId",this.plan)
+      console.log("planID",this.plan)
     })
   }
 

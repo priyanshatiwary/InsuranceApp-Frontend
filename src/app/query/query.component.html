@@ -1,5 +1,4 @@
-
-<app-logout-navigation></app-logout-navigation>
+<app-admin-navbar></app-admin-navbar>
 <router-outlet></router-outlet>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <br><br>
@@ -16,29 +15,34 @@
     <button mat-raised-button (click)="openAgentPlanDialog()" color="accent">Delete Agent </button>
     &nbsp;&nbsp; -->
 </mat-toolbar>
-<div class="container"><br>
-    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> View Query</h1>
-    <div style="float: left; width: 45%;">
+<div class="container">
+    <br>
+    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;">View Query</h1>
+    <div style="overflow-x:auto;">
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>Query Id</th><br><br>
-                    <th>Name</th><br><br>
-                    <th>Email</th><br><br>
-                    <th>Message</th><br><br>
-                    <th>customer Id</th><br><br>
-                    
+                    <th style="width: 8%;">Query Id</th>
+                    <th style="width: 20%;">Query Message</th>
+                    <th style="width: 12%;">Query Date</th>
+                    <th style="width: 20%;">Reply</th>
+                    <th style="width: 10%;">Customer Id</th>
+                    <th style="width: 20%;">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let query of queryData">
-                    <td>{{ query.queryId }}</td><br>
-                    <td>{{ query.name }}</td><br>
-                    <td>{{ query.email }}</td><br>
-                    <td>{{ query.message }}</td><br>
-                    <td>{{ query.customerId }}</td><br>
-                    <!-- <td>{{ agent.isActive }}</td><br> -->
-                    
+                    <td>{{ query.queryId }}</td>
+                    <td>{{ query.queryMessgae }}</td>
+                    <td>{{ query.queryDate }}</td>
+                    <td>{{ query.reply }}</td>
+                    <td>{{ query.customerId }}</td>
+                    <td>
+                        <mat-form-field>
+                            <input matInput [(ngModel)]="query.adminReply" placeholder="Admin Reply">
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" (click)="replyToQuery(query)">Reply</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

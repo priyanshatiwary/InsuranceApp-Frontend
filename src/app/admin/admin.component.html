@@ -1,4 +1,4 @@
-<app-logout-navigation></app-logout-navigation>
+<app-admin-navbar></app-admin-navbar>
 
 <div class="dashboard-container">
   <h2>Welcome {{adminName}} to Admin Dashboard</h2>
@@ -41,6 +41,16 @@
     <div class="dashboard-box" (click)="openQueryDetail()">
       <img src="assets/queryimg.webp" alt="View Customers" height="200" width="200">
       <h3>View Query Details</h3>
+    </div>
+    
+    <div class="dashboard-box" (click)="openPaymentDetail()">
+      <img src="assets/paymentimg.png" alt="View Payments" height="200" width="200">
+      <h3>View Payments Details</h3>
+    </div>
+    
+    <div class="dashboard-box" (click)="openClaimDetail()">
+      <img src="assets/claimimg.jpeg" alt="View Claims" height="200" width="200">
+      <h3>View Claims Details</h3>
     </div>
   </div>
 </div>

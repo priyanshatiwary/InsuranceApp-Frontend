@@ -35,6 +35,21 @@ import { ManageDocumentComponent } from './manage-document/manage-document.compo
 import { UpdateAgentComponent } from './update-agent/update-agent.component';
 
 
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { UpdateCustomerComponent } from './update-customer/update-customer.component';
+import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
+import { ViewPaymentComponent } from './view-payment/view-payment.component';
+import { ViewClaimComponent } from './view-claim/view-claim.component';
+import { ViewInsurancePlanComponent } from './view-insurance-plan/view-insurance-plan.component';
+import { UpdateInsurancePlanComponent } from './update-insurance-plan/update-insurance-plan.component';
+import { UpdateInsuranceSchemeComponent } from './update-insurance-scheme/update-insurance-scheme.component';
+import { ViewInsuranceSchemeComponent } from './view-insurance-scheme/view-insurance-scheme.component';
+import { ViewCommisionComponent } from './view-commision/view-commision.component';
+import { ViewCommisionWithdrawalComponent } from './view-commision-withdrawal/view-commision-withdrawal.component';
+import { ViewAgentComponent } from './view-agent/view-agent.component';
+import { ViewLocationComponent } from './view-location/view-location.component';
+import { AddLocationComponent } from './add-location/add-location.component';
  
 
 
@@ -60,8 +75,8 @@ const routes: Routes = [
   { path: 'logoutnavigation', component:LogoutNavigationComponent},
   { path: 'logout', component:LogoutComponent},
   { path: 'manage-agent', component: ManageAgentComponent },
-
   
+
 /*
     { path: 'manage-employee', component: ManageEmployeeComponent },
     { path: 'manage-insurance-plan', component: ManageInsurancePlanComponent },
@@ -74,12 +89,26 @@ const routes: Routes = [
   { path: 'admin/manage-insurance-scheme', component: ManageInsuranceSchemeComponent },
   { path: 'admin/manage-insurance-policy',component:InsurancePolicyComponent},
   { path: 'query',component:QueryComponent},
+  { path: 'view-customer',component:ViewCustomerComponent},
+  { path: 'view-payments',component:ViewPaymentComponent},
+  { path: 'view-claim',component:ViewClaimComponent},
+  { path: 'view-insurance-plan',component:ViewInsurancePlanComponent},
+  { path: 'update-insurance-plan',component:UpdateInsurancePlanComponent},
+  { path: 'update-insurance-scheme',component:UpdateInsuranceSchemeComponent},
+  { path: 'view-insurance-scheme',component:ViewInsuranceSchemeComponent},
+  { path: 'view-commision',component:ViewCommisionComponent},
+  { path: 'view-commisionWithdrawal',component:ViewCommisionWithdrawalComponent},
+  { path: 'view-agent',component:ViewAgentComponent},
+  { path: 'view-location',component:ViewLocationComponent},
+  { path: 'add-location',component:AddLocationComponent},
+  
   //Employee Modules
 
   { path: 'employee/manage-profile', component: ManageProfileComponent },
   { path: 'employee/manage-agent', component: ManageAgentComponent },
   { path: 'employee/manage-customer', component: ManageCustomerComponent },
   { path: 'employee/manage-document', component: ManageDocumentComponent },
+  
 
   //Agent 
 

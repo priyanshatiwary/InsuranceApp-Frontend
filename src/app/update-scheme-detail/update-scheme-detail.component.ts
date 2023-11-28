@@ -23,7 +23,8 @@ export class UpdateSchemeDetailComponent {
     profitRatio:new FormControl(''),
     registrationCommRatio:new FormControl(''),
     installmentCommRatio:new FormControl(''),
-    isActive:new FormControl('')
+    isActive:new FormControl(''),
+    schemeId:new FormControl('')
   })
   schemeDetailData:any
   detail:any=[{}]

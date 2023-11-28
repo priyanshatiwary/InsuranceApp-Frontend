@@ -12,7 +12,7 @@ export class AddInsuranceSchemeComponent {
   insuranceSchemeData:any
   addInsuranceScheme=new FormGroup({
     schemeName:new FormControl(''),
-    detailId:new FormControl(''),
+    planId:new FormControl(''),
     isActive:new FormControl('')
   })
   
