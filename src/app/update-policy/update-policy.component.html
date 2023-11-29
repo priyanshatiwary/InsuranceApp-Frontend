@@ -8,13 +8,13 @@
             Policy Number:<input class="form-control" type="number" formControlName="policyNo" [(ngModel)]="policy.policyNo"  placeholder="Policy Number"><br>
 
             <mat-form-field>
-                <input matInput [matDatepicker]="issueDatePicker" formControlName="issueDate" placeholder="Enter Issue Date">
+                Issue Date:&nbsp;<input matInput [matDatepicker]="issueDatePicker" formControlName="issueDate" [(ngModel)]="policy.issueDate" (dateChange)="onDateChange();" [min]="today" >
                 <mat-datepicker-toggle matSuffix [for]="issueDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #issueDatePicker></mat-datepicker>
               </mat-form-field>
                 <br>
             <mat-form-field>
-                <input matInput [matDatepicker]="maturityDatePicker" formControlName="maturityDate" placeholder="Enter Maturity Date">
+                Maturity Date:&nbsp;<input matInput [matDatepicker]="maturityDatePicker" formControlName="maturityDate" [(ngModel)]="policy.maturityDate" (dateChange)="onDateChange();" [min]="today" >
                 <mat-datepicker-toggle matSuffix [for]="maturityDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #maturityDatePicker></mat-datepicker>
               </mat-form-field>
@@ -25,14 +25,31 @@
             Premium Amount:<input class="form-control" type="number" formControlName="premiumAmount" [(ngModel)]="policy.premiumAmount" placeholder="premiumAmount"><br>
 
             Sum Assured:<input class="form-control" type="number" formControlName="sumAssured" [(ngModel)]="policy.sumAssured" placeholder="sumAssured"><br>
+            
+            <input class="form-control" id="exampleFormControlInput1" type="hidden" formControlName="schemeId" placeholder="Enter scheme Id"><br>
 
             Status:<input class="form-control" type="text" formControlName="status" [(ngModel)]="policy.status" placeholder="status"><br>
 
-            Scheme Id:<input class="form-control" type="number" formControlName="schemeId" [(ngModel)]="policy.schemeId" placeholder="Scheme Id"><br>
 
-            <!-- <input class="form-control" type="number" formControlName="claimId" [(ngModel)]="policy.claimId" placeholder="claimId"><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Select Scheme</mat-label>
+                <mat-select formControlName="schemeId" type="number">
+                    <mat-option *ngFor="let scheme of schemeList" [value]="scheme.schemeId" >
+                        {{ scheme.schemeName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Select Customer</mat-label>
+                <mat-select formControlName="customerId" >
+                    <mat-option *ngFor="let cust of custList" [value]="cust.customerId" >
+                        {{ cust.firstName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br>
+
             
-            <input class="form-control" type="number" formControlName="paymentId" [(ngModel)]="policy.paymentId" placeholder="paymentId"><br> -->
             
             IsActive:<input class="form-check-input" type="radio" formControlName="isActive" value="true" checked>&nbsp;True&nbsp;
             <input class="form-check-input" type="radio" formControlName="isActive" value="false">&nbsp;False<br><br>

@@ -11,12 +11,25 @@ export class QueryComponent {
   constructor(private queryService:QueryService,private dialog: MatDialog){
     this.queryService.getAllQuery().subscribe((data)=>{
       this.queryData=data
+      
     })
   }
 
+  // replyToQuery(query: any) {
+  //   query.reply = query.adminReply;
+
+  // // Update in the service
+  // const updatedData = this.queryData.map((item: { queryId: any; }) =>
+  //   item.queryId === query.queryId ? { ...item, reply: query.reply } : item
+  // );
+  // this.queryService.setQueryData(updatedData);
+  // }
   replyToQuery(query: any) {
-    // You can implement the logic to send the reply to the server or update it locally
     query.reply = query.adminReply;
-    console.log('Admin replied:', query.adminReply);
+
+    // Update the specific query in the service
+    this.queryService.updateQuery(query).subscribe(() => {
+      console.log('Query updated successfully.');
+    });
   }
 }

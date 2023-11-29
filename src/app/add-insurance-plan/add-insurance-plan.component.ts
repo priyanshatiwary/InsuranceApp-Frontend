@@ -24,6 +24,8 @@ export class AddInsurancePlanComponent {
         alert("New Insurance Scheme Added Successfully!")
         console.log("REsult",result)
         this.addInsurancePlan.reset()
+        window.location.reload();
+
       },
       error:(errorResponse:HttpErrorResponse)=>{
         console.log(errorResponse)

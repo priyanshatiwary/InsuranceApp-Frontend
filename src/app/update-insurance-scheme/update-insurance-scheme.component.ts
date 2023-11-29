@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { InsuranceSchemeService } from '../services/insurance-scheme.service';
 
@@ -14,17 +13,22 @@ export class UpdateInsuranceSchemeComponent {
     schemeId:new FormControl(''),
     schemeName:new FormControl(''),
     planId:new FormControl(''),
-    isActive:new FormControl('')
+    planName:new FormControl(''),
+    isActive:new FormControl(true)
   })
+  planList:any
   insuranceSchemeData:any
   scheme:any=[{}]
-  constructor(private insuranceService : InsuranceSchemeService, private router:Router){
-    insuranceService.getAllInsuranceScheme().subscribe((data)=>{
+  constructor(private insuranceService : InsuranceSchemeService){
+    this.insuranceService.getAllInsuranceScheme().subscribe((data)=>{
       this.insuranceSchemeData=data
+      this.planList=data
       console.log("schemedata:",this.insuranceSchemeData)
     })
+    
   }
-
+  schemeList:any
+  custList:any
   getSelectedScheme(event : any){
     this.insuranceService.getInsuranceSchemeById(event.target.value).subscribe((data)=>{
       this.scheme=data
@@ -38,6 +42,8 @@ export class UpdateInsuranceSchemeComponent {
         alert("Insurance Scheme updated Successfully")
         console.log(result)
         this.updateInsuranceScheme.reset()
+        window.location.reload();
+
       },
       error:(errorResponse:HttpErrorResponse)=>{
         console.log(errorResponse)

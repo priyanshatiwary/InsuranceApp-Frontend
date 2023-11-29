@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocationService } from '../services/location.service';
 @Component({
@@ -8,30 +8,35 @@ import { LocationService } from '../services/location.service';
   styleUrls: ['./add-location.component.css']
 })
 export class AddLocationComponent {
-  locform=new FormGroup({
-    state:new FormControl('', Validators.required),
-    city:new FormControl('', Validators.required)
-  })
+  locform: FormGroup;
+  states: string[] = ['Maharashtra', 'Punjab', 'Gujarat', 'Karnataka']; 
+  cities: string[] = 
+    ['Mumbai', 'Pune', 'Nagpur','Amritsar', 'Ludhiana', 'Chandigarh','Ahmedabad', 'Surat', 'Vadodara','Bangalore', 'Mysore', 'Hubli']
 
 
-
-  get stateValidator(){
-    return this.locform.get('state')
+  constructor(private fb: FormBuilder,private locService:LocationService) {
+    this.locform = this.fb.group({
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+    });
   }
 
-  get cityValidator(){
-    return this.locform.get('city')
+  get stateValidator() {
+    return this.locform.get('state');
   }
- 
 
-  constructor(private locService:LocationService){
+  get cityValidator() {
+    return this.locform.get('city');
   }
-  
+
+
  
   addLoc(formData:any){
     this.locService.addLocation(formData).subscribe({
       next:(response)=>{
         alert("Location added successfully")
+        window.location.reload()
+        console.log(response)
       }
     })
   }

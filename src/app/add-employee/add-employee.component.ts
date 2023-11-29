@@ -44,10 +44,15 @@ export class AddEmployeeComponent {
 
   createEmp(formData: any) {
     console.log(formData)
-    formData.isActive = formData.isActive === 'true';
+    // formData.isActive = formData.isActive === 'true';
     this.auth.addNewEmployee(formData).subscribe({
       next:(response)=>{
         alert("Employee added successfully")
+        window.location.reload()
+      },
+      error:(err:HttpErrorResponse)=>{
+        alert("Please put proper data")
+        console.log(err)
       }
     })
   }

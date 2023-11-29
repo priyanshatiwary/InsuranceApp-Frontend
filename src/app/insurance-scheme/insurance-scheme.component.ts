@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { InsuranceSchemeService } from '../services/insurance-scheme.service';
+import { InsurancePlanService } from '../services/insurance-plan.service';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { AddInsuranceSchemeComponent } from '../add-insurance-scheme/add-insurance-scheme.component';
@@ -13,10 +14,18 @@ import { DeleteInsuranceSchemeComponent } from '../delete-insurance-scheme/delet
 export class InsuranceSchemeComponent {
   title='Welcome to Insurance scheme detail'
   insuranceData:any;
-  constructor(private insuranceService : InsuranceSchemeService, private router:Router,private dialog:MatDialog){
-    insuranceService.getAllInsuranceScheme().subscribe((data)=>{
+  planList:any
+  constructor(private insuranceService : InsuranceSchemeService,
+    private planService:InsurancePlanService, 
+    private router:Router,private dialog:MatDialog){
+
+    this.insuranceService.getAllInsuranceScheme().subscribe((data)=>{
       this.insuranceData=data
       console.log("InsuranceData:",this.insuranceData)
+    })
+
+    this.planService.getAllInsurancePlan().subscribe((plans)=>{
+      this.planList=plans
     })
   }
 

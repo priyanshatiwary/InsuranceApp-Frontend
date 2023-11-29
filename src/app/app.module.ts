@@ -92,6 +92,9 @@ import { ViewCommisionWithdrawalComponent } from './view-commision-withdrawal/vi
 import { ViewLocationComponent } from './view-location/view-location.component';
 import { UpdateLocationComponent } from './update-location/update-location.component';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 
@@ -177,10 +180,10 @@ import { AddLocationComponent } from './add-location/add-location.component';
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,HttpClientModule, BrowserAnimationsModule,
-    MatButtonModule,MatDialogModule,MatIconModule,MatToolbarModule,FormsModule,    MatFormFieldModule,
+    MatButtonModule,MatDialogModule,MatIconModule,MatToolbarModule,FormsModule,MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,MatSelectModule,MatPaginatorModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass: JwtInterceptor,

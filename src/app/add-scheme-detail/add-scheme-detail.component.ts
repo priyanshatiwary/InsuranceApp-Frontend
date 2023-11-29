@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SchemeDetailService } from '../services/scheme-detail.service';
 import { Router } from '@angular/router';
+import { InsuranceSchemeService } from '../services/insurance-scheme.service';
 @Component({
   selector: 'app-add-scheme-detail',
   templateUrl: './add-scheme-detail.component.html',
@@ -23,11 +24,17 @@ export class AddSchemeDetailComponent {
     registrationCommRatio:new FormControl(''),
     installmentCommRatio:new FormControl(''),
     isActive:new FormControl(''),
-    schemeId:new FormControl('')
+    schemeId:new FormControl(''),
+    schemeName:new FormControl('')
 
   })
-
-  constructor( private detailService:SchemeDetailService,private router:Router){}
+  schemeList:any
+  constructor( private detailService:SchemeDetailService,private router:Router,
+    private schemeService:InsuranceSchemeService){
+      this.schemeService.getAllInsuranceScheme().subscribe((data)=>{
+        this.schemeList=data
+      })
+    }
 
   addNewSchemeDetail(data: any) {
     this.detailService.addNewDetail(data).subscribe({
@@ -35,6 +42,7 @@ export class AddSchemeDetailComponent {
         alert("New Insurance Scheme Added Successfully!")
         console.log("REsult",result)
         this.addSchemeDetail.reset()
+        window.location.reload()
       },
       error:(errorResponse:HttpErrorResponse)=>{
         alert("Please put proper data")

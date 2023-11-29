@@ -36,6 +36,8 @@ export class UpdateInsurancePlanComponent {
         alert("Insurance plan updated Successfully");
         console.log(result);
         this.updateInsurancePlan.reset();
+        window.location.reload();
+
       },
       error: (errorResponse: HttpErrorResponse) => {
         console.log(errorResponse);

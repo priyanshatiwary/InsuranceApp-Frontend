@@ -22,19 +22,21 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Commision Id</th>
-                    <th>Insurance Plan Id</th>
-                    <th>Agent Id</th>
-                    <th>Customer Id</th>
+                    <th>Insurance Plan Name</th>
+                    <th>Agent Name</th>
+                    <th>Customer Name</th>
                     <th>Commision Amount</th>
+                    <th>Is Active</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let commision of commisionData">
                     <td>{{ commision.id }}</td>
-                    <td>{{ commision.insurancePlanId }}</td>
-                    <td>{{ commision.agentId }}</td>
-                    <td>{{ commision.customerId }}</td>
+                    <td>{{ commision.planName }}</td>
+                    <td>{{ commision.agentName }}</td>
+                    <td>{{ commision.customerName }}</td>
                     <td>{{ commision.commisionAmount }}</td>   
+                    <td>{{ commision.isActive?'Yes':'No' }}</td>   
                 </tr>
             </tbody>
         </table>

@@ -1,5 +1,7 @@
 <app-admin-navbar></app-admin-navbar>
 <router-outlet></router-outlet>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <br><br>
 <mat-toolbar color="primary">
@@ -12,18 +14,23 @@
     &nbsp;&nbsp;
     <button mat-raised-button (click)="openUpdateAgentDialog()" color="accent">Update Agent </button>
     &nbsp;&nbsp;
-    <button mat-raised-button (click)="openAgentPlanDialog()" color="accent">Delete Agent </button>
-    &nbsp;&nbsp; -->
+    -->
+    <button mat-raised-button (click)="openEditDialog()" color="accent">Update Location </button>
+    &nbsp;&nbsp;
 </mat-toolbar>
 <div class="container"><br>
     <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> View Location</h1>
     <div style="float: left; width: 100%;">
+        
         <table class="table table-striped table-bordered">
+           
             <thead class="thead-dark">
                 <tr>
                     <th>Location Id</th>
                     <th>State</th>
                     <th>City</th>
+                    <th>IsActive</th>
+                    <th>Action</th>
 
                 </tr>
             </thead>
@@ -32,8 +39,17 @@
                     <td>{{ location.id }}</td>
                     <td>{{ location.state }}</td>
                     <td>{{ location.city }}</td>
+                    <td>{{ location.isActive?'Yes':'No' }}</td>
+                    <td>
+                        <button mat-icon-button (click)="deleteLocation(location.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+
                 </tr>
             </tbody>
         </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons (page)="onPageChange($event)" [length]="totalItems">
+        </mat-paginator>
     </div>
 </div>

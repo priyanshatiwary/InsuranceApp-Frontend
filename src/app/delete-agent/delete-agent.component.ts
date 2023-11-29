@@ -11,22 +11,28 @@ import { AgentService } from '../services/agent-services.service';
 })
 export class DeleteAgentComponent {
 
-  agentId: any;
+  agentIds:any
+  selectedAgentId:any
   constructor(
     public dialogRef: MatDialogRef<DeleteAgentComponent>,
     private agentService: AgentService,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) { 
+    this.agentService.getAllAgent().subscribe((data)=>{
+      this.agentIds=data
+    })
+  }
 
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
   onDeleteClick(): void {
-    this.agentService.deleteAgent(this.agentId).subscribe({
+    this.agentService.deleteAgent(this.selectedAgentId).subscribe({
       next:(response)=>{
         alert("Agent deleted successfully")
         console.log(response)
+        window.location.reload()
       },
       error:(error:HttpErrorResponse)=>{
         console.log(error)

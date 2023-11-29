@@ -84,6 +84,8 @@ export class UpdateCustomerComponent {
     this.custService.updateCustomer(formData).subscribe({
       next:(response)=>{
         alert("Customer added successfully")
+        window.location.reload();
+
       },
       error:(err:HttpErrorResponse)=>{
         alert("Error occur while updating customer")

@@ -9,21 +9,28 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./delete-employee.component.css']
 })
 export class DeleteEmployeeComponent {
-  employeeId: any;
+  employeeIds:any
   constructor(
     public dialogRef: MatDialogRef<DeleteEmployeeComponent>,
     private empService: EmployeeService,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) { 
+    this.empService.getAllemployee().subscribe((data)=>{
+      this.employeeIds=data
+    })
+  }
 
+  selectedEmployeeId:any
+  
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
   onDeleteClick(): void {
-    this.empService.deleteEmployee(this.employeeId).subscribe({
+    this.empService.deleteEmployee(this.selectedEmployeeId).subscribe({
       next:(response)=>{
         alert("Employee deleted successfully")
+        window.location.reload()
         console.log(response)
       },
       error:(error:HttpErrorResponse)=>{

@@ -3,6 +3,7 @@ import {FormGroup,FormControl} from'@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { InsuranceSchemeService } from '../services/insurance-scheme.service';
+import { InsurancePlanService } from '../services/insurance-plan.service';
 @Component({
   selector: 'app-add-insurance-scheme',
   templateUrl: './add-insurance-scheme.component.html',
@@ -15,8 +16,12 @@ export class AddInsuranceSchemeComponent {
     planId:new FormControl(''),
     isActive:new FormControl('')
   })
-  
-  constructor(private insuranceService : InsuranceSchemeService, private router:Router){}
+  planList:any
+  constructor(private insuranceService : InsuranceSchemeService, private planservice:InsurancePlanService){
+    this.insuranceService.getAllInsuranceScheme().subscribe((data)=>{
+      this.planList=data
+    })
+  }
 
   addNewInsuranceScheme(data:any){
     console.log("DAta : ",data)
@@ -26,6 +31,8 @@ export class AddInsuranceSchemeComponent {
         alert("New Insurance Scheme Added Successfully!")
         console.log("REsult",result)
         this.addInsuranceScheme.reset()
+        window.location.reload();
+
       },
       error:(errorResponse:HttpErrorResponse)=>{
         alert("Please put proper data")

@@ -3,16 +3,6 @@
 <div class="dashboard-container">
   <h2>Welcome {{adminName}} to Admin Dashboard</h2>
   <div class="dashboard-content">
-    <div class="dashboard-box" (click)="navigateTo('manage-agent')">
-      <img src="assets/agent.jpg" alt="Manage Agent" height="200" width="200">
-      <h3>Manage Agent</h3>
-    </div>
-
-    <div class="dashboard-box" (click)="navigateTo('manage-employee')">
-      <img src="assets/manageEmployee.jpeg" alt="Manage Employee" height="200" width="200">
-      <h3>Manage Employee</h3>
-    </div>
-
     <div class="dashboard-box" (click)="navigateTo('manage-insurance-plan')">
       <img src="assets/insurance_plan.jpg" alt="Manage Insurance Plan" height="200" width="200">
       <h3>Manage Insurance Plan</h3>
@@ -27,22 +17,22 @@
       <img src="assets/policy.jpg" alt="Manage Insurance Policy" height="200" width="200">
       <h3>Manage Insurance Policy</h3>
     </div>
-    
+
     <div class="dashboard-box" (click)="openSchemeDetail()">
       <img src="assets/bg8.jpg" alt="Manage Insurance Scheme Details" height="200" width="200">
       <h3>Manage Insurance Scheme Details</h3>
     </div>
-    
-    <div class="dashboard-box" (click)="openCustomerDetail()">
-      <img src="assets/customerDetails.jpeg" alt="View Customers" height="200" width="200">
-      <h3>View Customers Details</h3>
+
+    <div class="dashboard-box" (click)="navigateTo('manage-agent')">
+      <img src="assets/agent.jpg" alt="Manage Agent" height="200" width="200">
+      <h3>Manage Agent</h3>
     </div>
 
-    <div class="dashboard-box" (click)="openQueryDetail()">
-      <img src="assets/queryimg.webp" alt="View Customers" height="200" width="200">
-      <h3>View Query Details</h3>
+    <div class="dashboard-box" (click)="navigateTo('manage-employee')">
+      <img src="assets/manageEmployee.jpeg" alt="Manage Employee" height="200" width="200">
+      <h3>Manage Employee</h3>
     </div>
-    
+
     <div class="dashboard-box" (click)="openPaymentDetail()">
       <img src="assets/paymentimg.png" alt="View Payments" height="200" width="200">
       <h3>View Payments Details</h3>
@@ -52,6 +42,17 @@
       <img src="assets/claimimg.jpeg" alt="View Claims" height="200" width="200">
       <h3>View Claims Details</h3>
     </div>
+    
+    <!-- <div class="dashboard-box" (click)="openCustomerDetail()">
+      <img src="assets/customerDetails.jpeg" alt="View Customers" height="200" width="200">
+      <h3>View Customers Details</h3>
+    </div>
+
+    <div class="dashboard-box" (click)="openQueryDetail()">
+      <img src="assets/queryimg.webp" alt="View Customers" height="200" width="200">
+      <h3>View Query Details</h3>
+    </div> -->
+    
   </div>
 </div>
 <!-- <app-footer></app-footer> -->

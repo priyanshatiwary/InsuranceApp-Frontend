@@ -9,21 +9,27 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./delete-policy.component.css']
 })
 export class DeletePolicyComponent {
-  policyId: any;
+  selectedPolicyId:any
+  policyIds:any
   constructor(
     public dialogRef: MatDialogRef<DeletePolicyComponent>,
     private policyService: PolicyService,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) { 
+    this.policyService.getAllInsurancePolicy().subscribe((data)=>{
+      this.policyIds=data
+    })
+  }
 
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
   onDeleteClick(): void {
-    this.policyService.deleteInsurancePolicy(this.policyId).subscribe({
+    this.policyService.deleteInsurancePolicy(this.selectedPolicyId).subscribe({
       next:(response)=>{
         alert("Policy deleted successfully")
+        window.location.reload();
         console.log(response)
       },
       error:(error:HttpErrorResponse)=>{

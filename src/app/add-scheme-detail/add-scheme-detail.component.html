@@ -27,10 +27,19 @@
 
             Installment Commission Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="installmentCommRatio" placeholder="Enter Installment Commission Ratio"><br>
 
-            Scheme Id:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="schemeId" placeholder="Enter Scheme ID"><br>
+            <!-- Scheme Id:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="schemeId" placeholder="Enter Scheme ID"><br> -->
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Select Scheme Name</mat-label>
+                <mat-select formControlName="schemeId">
+                    <mat-option *ngFor="let scheme of schemeList" [value]="scheme.schemeId">
+                        {{ scheme.schemeName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br>
            
             
-            <input class="form-check-input" placeholder="IsActive" type="radio" formControlName="isActive" value="true">&nbsp;True&nbsp;&nbsp;
+            Is Active:<input class="form-check-input" placeholder="IsActive" type="radio" formControlName="isActive" value="true">&nbsp;True&nbsp;&nbsp;
             <input class="form-check-input" type="radio" formControlName="isActive" value="false">&nbsp;False<br><br>
 
             <button>Submit</button>
