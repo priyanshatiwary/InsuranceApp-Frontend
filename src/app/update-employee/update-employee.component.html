@@ -2,7 +2,7 @@
     <h2 mat-dialog-title>Update Employee</h2>
     <mat-dialog-content class="mat-typography">
         <select (change)="getSelectedEmp($event)">
-            <option *ngFor="let agentId of empData" value="{{agentId?.agentId}}">{{agentId.agentId}}</option>
+            <option *ngFor="let emp of empData" value="{{emp?.employeeId}}">{{emp.employeeId}}</option>
         </select>
         <form [formGroup]="editEmpForm" (ngSubmit)="editEmp(editEmpForm.value)" class="example-form">
             Employee Id: <input class="form-control" type="number" placeholder="Enter employee id" formControlName="employeeId" [(ngModel)]="employee.employeeId">

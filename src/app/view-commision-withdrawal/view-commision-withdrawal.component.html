@@ -22,19 +22,23 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Commision Withdrawal Id</th>
+                    <th>Agent Name</th>
                     <th>Request Date</th>
                     <th>Withdrawal Amount</th>
                     <th>Total Withdrawal Amount</th>
                     <th>Is Approved</th>
+                    <th>Is Active</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let commision of commisionData">
                     <td>{{ commision.id }}</td>
+                    <td>{{ commision.agentName }}</td>
                     <td>{{ commision.requestDate }}</td>
                     <td>{{ commision.withdrawalAmount }}</td>
                     <td>{{ commision.totalWithdrawalAmount }}</td>
-                    <td>{{ commision.isApproved }}</td>   
+                    <td>{{ commision.isApproved?'Yes':'No' }}</td>   
+                    <td>{{ commision.isActive?'Yes':'No' }}</td>   
                 </tr>
             </tbody>
         </table>

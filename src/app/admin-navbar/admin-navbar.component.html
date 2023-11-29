@@ -1,15 +1,16 @@
 <nav>
     <img src="assets/logo3.png" width="60px" height="60px">
     <ul>
-        <li><a routerLink="/home">Home</a></li>
+        <!-- <li><a routerLink="/home">Home</a></li>
 
         <li><a routerLink="/about-us">About Us</a></li>
 
-        <li><a routerLink="/contact-us">Contact Us</a></li>
+        <li><a routerLink="/contact-us">Contact Us</a></li> -->
 
-        <li><a routerLink="/admin"> Go To Dashboard</a></li>
+        <li><a routerLink="/admin">Dashboard</a></li>
+        <li><a routerLink="/insurance-scheme">Insurance Scheme</a></li>
 
-        <li class="dropdown">
+        <!-- <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Insurance</a>
             <div class="dropdown-content">
                 <a routerLink="/view-insurance-plan">View Insurance Plan</a>
@@ -17,21 +18,22 @@
                 <a routerLink="/view-insurance-scheme">View Insurance Scheme</a>
                 <a (click)="openUpdateInsuranceSchemeDialog()">Edit Insurance Scheme</a>
             </div>
-        </li>
+        </li> -->
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Customer</a>
             <div class="dropdown-content">
                 <a routerLink="/view-customer">View Customer</a>
-                <a routerLink="/view-claim">View Claim</a>
-                <a routerLink="/view-payments">View Payment</a>
+                <a routerLink="/query">Query Report</a>
+                <!-- <a routerLink="/view-claim">View Claim</a>
+                <a routerLink="/view-payments">View Payment</a> -->
 
             </div>
         </li>
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Agent</a>
             <div class="dropdown-content">
-                <a routerLink="/view-agent">View Agent</a>
-                <a (click)="openUpdateAgentDialog()">Edit Agent</a>
+                <!-- <a routerLink="/view-agent">View Agent</a>
+                <a (click)="openUpdateAgentDialog()">Edit Agent</a> -->
                 <a routerLink="/view-commision">View Commision</a>
                 <a routerLink="/view-commisionWithdrawal">View CommisionWithdrawal</a>
 
@@ -41,9 +43,9 @@
             <a href="javascript:void(0)" class="dropbtn">Settings</a>
             <div class="dropdown-content">
 
-                <a routerLink="/query">Query Report</a>
                 <a (click)="openAddLocationDialog()">Add Location</a>
                 <a routerLink="/view-location">View Location</a>
+                
             </div>
         </li>
         <li>

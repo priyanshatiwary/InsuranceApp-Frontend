@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SchemeDetailService } from '../services/scheme-detail.service';
+import { InsuranceSchemeService } from '../services/insurance-scheme.service';
 @Component({
   selector: 'app-update-scheme-detail',
   templateUrl: './update-scheme-detail.component.html',
@@ -24,14 +25,19 @@ export class UpdateSchemeDetailComponent {
     registrationCommRatio:new FormControl(''),
     installmentCommRatio:new FormControl(''),
     isActive:new FormControl(''),
-    schemeId:new FormControl('')
+    schemeId:new FormControl(''),
+    schemeName:new FormControl('')
   })
   schemeDetailData:any
   detail:any=[{}]
-
-  constructor( private detailService:SchemeDetailService,private router:Router){
+  schemeList:any
+  constructor( private detailService:SchemeDetailService,private router:Router,
+    private schemeService:InsuranceSchemeService){
     this.detailService.getAllDetails().subscribe((data)=>{
       this.schemeDetailData=data
+    })
+    this.schemeService.getAllInsuranceScheme().subscribe((data)=>{
+      this.schemeList=data
     })
   }
   getSelectedDetail(event:any){
@@ -46,6 +52,8 @@ export class UpdateSchemeDetailComponent {
         alert("Insurance policy updated Successfully");
         console.log(result);
         this.updateSchemeDetail.reset();
+        window.location.reload();
+
       },
       error: (errorResponse: HttpErrorResponse) => {
         console.log(errorResponse);

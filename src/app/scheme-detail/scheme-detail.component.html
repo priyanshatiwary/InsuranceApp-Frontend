@@ -17,40 +17,43 @@
 </mat-toolbar>
 <div class="container"><br>
     <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> Scheme Detail Data</h1>
-    <div style="float: left; width: 45%;">
+    <div style="float: left; width: 100%;">
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>Detail ID</th><br><br>
-                    <th>Scheme Image</th><br><br>
-                    <th>Description</th><br><br>
-                    <th>Minimum Amount</th><br><br>
-                    <th>Maximum Amount</th><br><br>
-                    <th>Minimum Investment Time</th><br><br>
-                    <th>Maximum Investment Time</th> <br><br>
-                    <th>Minimum Age</th><br><br>
-                    <th>Maximum Age</th> <br><br>
-                    <th>Profit Ratio</th> <br><br>
-                    <th>Registration Commission Ratio</th> <br><br>
-                    <th>Installment Commission Ratio</th><br><br> 
-                    <th>Scheme Id</th><br><br> 
+                    <th>Detail ID</th>
+                    <th>Scheme Image</th>
+                    <th>Description</th>
+                    <th>Minimum Amount</th>
+                    <th>Maximum Amount</th>
+                    <th>Minimum Investment Time</th>
+                    <th>Maximum Investment Time</th> 
+                    <th>Minimum Age</th>
+                    <th>Maximum Age</th> 
+                    <th>Profit Ratio</th> 
+                    <th>Registration Commission Ratio</th>
+                    <th>Installment Commission Ratio</th>
+                    <th>Scheme Name</th>
+                    <th>Is Active</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let insurance of detailData">
-                    <td>{{ insurance.detailId }}</td><br>
-                    <td>{{ insurance.schemeImage }}</td><br>
-                    <td>{{ insurance.description }}</td><br>
-                    <td>{{ insurance.minAmount }}</td><br>
-                    <td>{{ insurance.maxAmount }}</td><br>
-                    <td>{{ insurance.minInvestmentTime }}</td><br>
-                    <td>{{ insurance.maxInvestmentTime }}</td><br>
-                    <td>{{ insurance.minAge }}</td><br>
-                    <td>{{ insurance.maxAge }}</td><br>
-                    <td>{{ insurance.profitRatio }}</td><br>
-                    <td>{{ insurance.registrationCommRatio }}</td><br> 
-                    <td>{{ insurance.installmentCommRatio }}</td> <br>
-                    <td>{{ insurance.schemeId }}</td> 
+                    <td>{{ insurance.detailId }}</td>
+                    <td>{{ insurance.schemeImage }}</td>
+                    <td>{{ insurance.description }}</td>
+                    <td>{{ insurance.minAmount }}</td>
+                    <td>{{ insurance.maxAmount }}</td>
+                    <td>{{ insurance.minInvestmentTime }}</td>
+                    <td>{{ insurance.maxInvestmentTime }}</td>
+                    <td>{{ insurance.minAge }}</td>
+                    <td>{{ insurance.maxAge }}</td>
+                    <td>{{ insurance.profitRatio }}</td>
+                    <td>{{ insurance.registrationCommRatio }}</td> 
+                    <td>{{ insurance.installmentCommRatio }}</td> 
+                    <td>{{ insurance.schemeName }}</td> 
+                    <td>{{ insurance.isActive?'Yes':'No' }}</td> 
                 </tr>
             </tbody>
         </table>

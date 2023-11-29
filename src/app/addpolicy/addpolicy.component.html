@@ -7,17 +7,20 @@
         <form [formGroup]="addInsurancePolicy" 
         (ngSubmit)="addNewInsurancePolicy(addInsurancePolicy.value)" class="example-form">
         <mat-form-field>
-            <input matInput [matDatepicker]="issueDatePicker" formControlName="issueDate" placeholder="Enter Issue Date">
+            Issue Date: &nbsp;<input matInput [matDatepicker]="issueDatePicker" formControlName="issueDate" (dateChange)="onDateChange();" [min]="today" >
             <mat-datepicker-toggle matSuffix [for]="issueDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #issueDatePicker></mat-datepicker>
           </mat-form-field>
             <br>
         <mat-form-field>
-            <input matInput [matDatepicker]="maturityDatePicker" formControlName="maturityDate" placeholder="Enter Maturity Date">
+            Maturity Date :&nbsp;<input matInput [matDatepicker]="maturityDatePicker" formControlName="maturityDate" (dateChange)="onDateChange();" [min]="today" >
             <mat-datepicker-toggle matSuffix [for]="maturityDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #maturityDatePicker></mat-datepicker>
           </mat-form-field>
             <br>
+
+            
+
             Premium Type:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="premiumType" placeholder="Enter Premium Type"><br>
 
             Premium Amount:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="premiumAmount" placeholder="Enter Premium Amount"><br>
@@ -26,10 +29,28 @@
 
             Status:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="status" placeholder="Enter Status"><br>
 
-            Scheme Id:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="schemeId" placeholder="Enter scheme Id"><br>
+            Scheme Id:<input class="form-control" id="exampleFormControlInput1" type="hidden" formControlName="schemeId" placeholder="Enter scheme Id"><br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Select Scheme</mat-label>
+                <mat-select formControlName="schemeId" type="number">
+                    <mat-option *ngFor="let scheme of schemeList" [value]="scheme.schemeId" >
+                        {{ scheme.schemeName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Select Customer</mat-label>
+                <mat-select formControlName="customerId" >
+                    <mat-option *ngFor="let cust of custList" [value]="cust.customerId" >
+                        {{ cust.firstName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br>
 
             
-            <input class="form-check-input" placeholder="IsActive" type="radio" formControlName="isActive" value="true">&nbsp;True&nbsp;&nbsp;
+            Is Active:&nbsp;<input class="form-check-input" placeholder="IsActive" type="radio" formControlName="isActive" value="true">&nbsp;True&nbsp;&nbsp;
             <input class="form-check-input" type="radio" formControlName="isActive" value="false">&nbsp;False<br><br>
 
             <button>Submit</button>

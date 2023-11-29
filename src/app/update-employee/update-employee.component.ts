@@ -64,6 +64,12 @@ export class UpdateEmployeeComponent {
     this.auth.updateEmployee(formData).subscribe({
       next:(response)=>{
         alert("Employee updated successfully")
+        window.location.reload();
+
+      },
+      error:(err:HttpErrorResponse)=>{
+        alert("Please provide proper data ")
+        console.log(err)
       }
     })
   }

@@ -72,6 +72,8 @@ export class UpdateAgentComponent {
     this.auth.updateAgent(formData).subscribe({
       next:(response)=>{
         alert("Agent updated successfully")
+        window.location.reload();
+
       }
     })
   }

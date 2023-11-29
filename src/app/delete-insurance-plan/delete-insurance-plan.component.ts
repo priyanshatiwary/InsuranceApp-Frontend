@@ -31,7 +31,7 @@ export class DeleteInsurancePlanComponent {
   deleteInsurancePlanData(data:any){
     this.insuranceService.deleteInsurancePlan(data.planId).subscribe({
       next:(result)=>{
-        alert("Insurance data deleted Successfully")
+        alert("Insurance plan deleted Successfully")
         console.log(result)
         this.deleteInsurancePlan.reset()
       },

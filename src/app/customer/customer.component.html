@@ -32,6 +32,8 @@
                     <th>Nominee Relation</th><br><br>
                     <th>Agent Id</th><br><br>
                     <th>User Id</th><br><br>
+                    <th>Is Active</th><br><br>
+
                     
                 </tr>
             </thead>
@@ -48,7 +50,7 @@
                     <td>{{ customer.nomineeRelation }}</td><br>
                     <td>{{ customer.agentId }}</td><br>
                     <td>{{ customer.userId }}</td><br>
-                    <!-- <td>{{ agent.isActive }}</td><br> -->
+                    <td>{{ customer.isActive?'Yes':'No' }}</td><br>
                     
                 </tr>
             </tbody>

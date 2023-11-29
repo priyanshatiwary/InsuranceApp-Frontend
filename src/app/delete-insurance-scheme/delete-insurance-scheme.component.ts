@@ -13,6 +13,7 @@ export class DeleteInsuranceSchemeComponent {
     schemeId:new FormControl(''),
     schemeName:new FormControl(''),
     planId:new FormControl(''),
+    planName:new FormControl(''),
     isActive:new FormControl('')
   })
   insuranceSchemeData:any
@@ -22,7 +23,7 @@ export class DeleteInsuranceSchemeComponent {
       this.insuranceSchemeData=data
     })
   }
-
+  
   getSelectedValue(event : any){
     this.insuranceService.getInsuranceSchemeById(event.target.value).subscribe((data)=>{
       this.scheme=data

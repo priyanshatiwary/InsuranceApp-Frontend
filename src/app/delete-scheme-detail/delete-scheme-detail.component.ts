@@ -9,22 +9,27 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./delete-scheme-detail.component.css']
 })
 export class DeleteSchemeDetailComponent {
-
-  detailId: any;
+  selectedDetailId:any
+  detailIds:any
   constructor(
     public dialogRef: MatDialogRef<DeleteSchemeDetailComponent>,
     private detailService: SchemeDetailService,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) { 
+    this.detailService.getAllDetails().subscribe((data)=>{
+      this.detailIds=data
+    })
+  }
 
   onCancelClick(): void {
     this.dialogRef.close();
   }
 
   onDeleteClick(): void {
-    this.detailService.deleteDetail(this.detailId).subscribe({
+    this.detailService.deleteDetail(this.selectedDetailId).subscribe({
       next:(response)=>{
         alert("Policy deleted successfully")
+        window.location.reload()
         
         console.log(response)
       },
