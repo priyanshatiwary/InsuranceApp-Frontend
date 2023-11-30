@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PolicyService } from '../services/policy.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -14,21 +14,47 @@ import { CustomerService } from '../services/customer.service';
 export class AddpolicyComponent {
   today = new Date();
   addInsurancePolicy = new FormGroup({
-    issueDate:new FormControl(''),
-    maturityDate:new FormControl(''),
-    premiumType:new FormControl(''),
-    premiumAmount:new FormControl(''),
-    sumAssured:new FormControl(''),
-    status:new FormControl(''),
-    isActive:new FormControl(''),
-    schemeId:new FormControl(''),
-    customerId:new FormControl(''),
+    issueDate:new FormControl('', Validators.required),
+    maturityDate:new FormControl('', Validators.required),
+    premiumType:new FormControl('', Validators.required),
+    premiumAmount:new FormControl('', Validators.required),
+    sumAssured:new FormControl('', Validators.required),
+    status:new FormControl('', Validators.required),
+    isActive:new FormControl('', Validators.required),
+    schemeId:new FormControl('', Validators.required),
+    customerId:new FormControl('', Validators.required),
 
   })
 
-  schemeList:any
-  custList:any
+  get issueDateValid(){
+    return this.addInsurancePolicy.get('issueDate')
+  }
+  get maturityDateValid(){
+    return this.addInsurancePolicy.get('maturityDate')
+  }
+  get premiumTypeValid(){
+    return this.addInsurancePolicy.get('premiumType')
+  }
+  get premiumAmountValid(){
+    return this.addInsurancePolicy.get('premiumAmount')
+  }
+  get sumAssuredValid(){
+    return this.addInsurancePolicy.get('sumAssured')
+  }
+  get statusValid(){
+    return this.addInsurancePolicy.get('status')
+  }
+  get isActiveValid(){
+    return this.addInsurancePolicy.get('isActive')
+  }
+  get schemeIdValid(){
+    return this.addInsurancePolicy.get('schemeId')
+  }
+  get customerIdValid(){
+    return this.addInsurancePolicy.get('customerId')
+  }
 
+  
   onDateChange(){  
     var issueDate = this.addInsurancePolicy.controls['issueDate'].value;
     var maturityDate = this.addInsurancePolicy.controls['maturityDate'].value;
@@ -41,6 +67,8 @@ export class AddpolicyComponent {
       }
     }  
   }
+  schemeList:any
+  custList:any
   constructor(private insuranceService:PolicyService,private schemeService:InsuranceSchemeService,
     private custService:CustomerService){
 
@@ -63,8 +91,8 @@ export class AddpolicyComponent {
 
       },
       error:(errorResponse:HttpErrorResponse)=>{
+        alert(`${errorResponse.error.Message}`)
         console.log(errorResponse)
-        alert("Please enter proper Data")
       }
     })
   }

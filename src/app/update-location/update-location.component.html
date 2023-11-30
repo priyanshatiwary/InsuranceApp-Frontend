@@ -5,7 +5,7 @@
             <option *ngFor="let id of locData" value="{{id?.id}}">{{id.id}}</option>
         </select>
         <form [formGroup]="locform" (ngSubmit)="editLoc(locform.value)" class="example-form">
-            Location Id: <input class="form-control" type="number" placeholder=" Location id" formControlName="id" [(ngModel)]="location.id">
+            <input class="form-control" type="hidden" placeholder=" Location id" formControlName="id" [(ngModel)]="location.id">
             <span *ngIf="locationIdValidator && locationIdValidator.invalid && locationIdValidator.touched">
                 Please enter valid location id</span>
             <br>
@@ -18,11 +18,11 @@
                         {{ state }}
                     </mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field><br>
             <span *ngIf="stateValidator && stateValidator.invalid && stateValidator.touched">
                 Please select a state
             </span>
-            <br><br>
+            <br>
 
             City :
             <br>
@@ -33,11 +33,11 @@
                         {{ city }}
                     </mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field><br>
             <span *ngIf="cityValidator && cityValidator.invalid && cityValidator.touched">
                 Please select a city
             </span>
-            <br><br>
+            <br>
             Is Active :&nbsp;&nbsp;<input class="form-check-input" type="checkbox" formControlName="isActive">
             <span *ngIf="isActiveValidator && isActiveValidator.invalid && isActiveValidator.touched">
                 please check the box</span>

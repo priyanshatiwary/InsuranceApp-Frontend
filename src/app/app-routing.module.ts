@@ -50,6 +50,7 @@ import { ViewCommisionWithdrawalComponent } from './view-commision-withdrawal/vi
 import { ViewAgentComponent } from './view-agent/view-agent.component';
 import { ViewLocationComponent } from './view-location/view-location.component';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { AddSchemeDetailComponent } from './add-scheme-detail/add-scheme-detail.component';
  
 
 
@@ -101,10 +102,11 @@ const routes: Routes = [
   { path: 'view-agent',component:ViewAgentComponent},
   { path: 'view-location',component:ViewLocationComponent},
   { path: 'add-location',component:AddLocationComponent},
+  { path: 'add-scheme-detail',component:AddSchemeDetailComponent} ,
   
   //Employee Modules
 
-  { path: 'employee/manage-profile', component: ManageProfileComponent },
+  { path: 'manage-profile', component: ManageProfileComponent },
   { path: 'employee/manage-agent', component: ManageAgentComponent },
   { path: 'employee/manage-customer', component: ManageCustomerComponent },
   { path: 'employee/manage-document', component: ManageDocumentComponent },

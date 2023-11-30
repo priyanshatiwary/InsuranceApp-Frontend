@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocationService } from '../services/location.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-add-location',
   templateUrl: './add-location.component.html',
@@ -37,6 +38,10 @@ export class AddLocationComponent {
         alert("Location added successfully")
         window.location.reload()
         console.log(response)
+      },
+      error:(err:HttpErrorResponse)=>{
+        alert(`${err.error.Message}`)
+        console.log(err)
       }
     })
   }

@@ -4,21 +4,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  private _userName:string = "";
- private _userId :number = 0;
-  set userName(value:string){
-    this._userName=value;
+
+  loggedUserData:any
+  private _userName: string = "";
+  roleName: string = '';
+  private _userId: number = 0;
+  set userName(value: string) {
+    this._userName = value;
   }
-  get userName():string{
+  get userName(): string {
     return this._userName;
   }
 
-  set userId(value:number){
-    this._userId=value;
+  set userId(value: number) {
+    this._userId = value;
   }
-  get userId():number{
+  get userId(): number {
     return this._userId;
   }
-  
-   constructor() { }
-  }
+
+  constructor() { }
+}

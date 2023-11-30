@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CustomerService } from '../services/customer.service';
+import { UserServiceService } from '../services/user-service.service';
 @Component({
   selector: 'app-add-customer',
   templateUrl: './add-customer.component.html',
@@ -57,7 +58,12 @@ export class AddCustomerComponent {
   get isActiveValidator() {
     return this.customerForm.get('isActive')
   }
-  constructor(private custService: CustomerService, private router: Router) { }
+  userLists:any
+  constructor(private custService: CustomerService, private router: Router,private userService:UserServiceService) { 
+    this.userService.getAllCustUser().subscribe((data)=>{
+      this.userLists=data
+    })
+  }
 
   createEmp(formData: any) {
     console.log(formData)
@@ -65,6 +71,10 @@ export class AddCustomerComponent {
     this.custService.addCustomer(formData).subscribe({
       next:(response)=>{
         alert("Customer added successfully")
+      },
+      error:(err:HttpErrorResponse)=>{
+        alert(`${err.error.Message}`)
+        console.log(err)
       }
     })
   }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EmployeeService } from '../services/employee.service';
+import { UserServiceService } from '../services/user-service.service';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -40,7 +41,12 @@ export class AddEmployeeComponent {
   get isActiveValidator() {
     return this.signupEmpForm.get('isActive')
   }
-  constructor(private auth: EmployeeService, private router: Router) { }
+  userLists:any
+  constructor(private auth: EmployeeService, private router: Router,private userService:UserServiceService) { 
+    this.userService.getAllEmpUser().subscribe((data)=>{
+      this.userLists=data
+    })
+  }
 
   createEmp(formData: any) {
     console.log(formData)
@@ -51,7 +57,7 @@ export class AddEmployeeComponent {
         window.location.reload()
       },
       error:(err:HttpErrorResponse)=>{
-        alert("Please put proper data")
+        alert(`${err.error.Message}`)
         console.log(err)
       }
     })

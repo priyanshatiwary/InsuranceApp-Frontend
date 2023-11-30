@@ -5,27 +5,61 @@
         <form [formGroup]="addSchemeDetail" 
         (ngSubmit)="addNewSchemeDetail(addSchemeDetail.value)" class="example-form">
 
-            Scheme Image:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="schemeImage" placeholder="Enter Scheme Image"><br>
+            Scheme Image<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="schemeImage" placeholder="Enter Scheme Image">
+            <span *ngIf="schemeImageValid && schemeImageValid.invalid && schemeImageValid.touched">
+                Please select Image
+            </span><br>
             
-            Description:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="description" placeholder="Enter Description"><br>
+            Description<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="description" placeholder="Enter Description">
+            <span *ngIf="descriptionValid && descriptionValid.invalid && descriptionValid.touched">
+                Please enter Description
 
-            Minimum Amount:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minAmount" placeholder="Enter Minimum Amount"><br>
+            </span><br>
 
-            Maximum Amount:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxAmount" placeholder="Enter Maximum Amount"><br>
+            Minimum Amount<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minAmount" placeholder="Enter Minimum Amount">
+            <span *ngIf="minAmountValid && minAmountValid.invalid && minAmountValid.touched">
+                Please enter Min Amount
 
-            Minimum Investment Time:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minInvestmentTime" placeholder="Enter Minimum Investment Time"><br>
+            </span><br>
 
-            Maximum Investment Time:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxInvestmentTime" placeholder="Enter Maximum Investment Time"><br>
+            Maximum Amount<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxAmount" placeholder="Enter Maximum Amount">
+            <span *ngIf="maxAmountValid && maxAmountValid.invalid && maxAmountValid.touched">
+                Please enter Max Amount
+            </span><br>
 
-            Minimum Age:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minAge" placeholder="Enter Minimum Age"><br>
+            Minimum Investment Time<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minInvestmentTime" placeholder="Enter Minimum Investment Time">
+            <span *ngIf="minInvestmentTimeValid && minInvestmentTimeValid.invalid && minInvestmentTimeValid.touched">
+                Please enter Min Investment
+            </span><br>
 
-            Maximum Age:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxAge" placeholder="Enter Maximum Age"><br>
+            Maximum Investment Time<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxInvestmentTime" placeholder="Enter Maximum Investment Time"><span *ngIf="maxInvestmentTimeValid && maxInvestmentTimeValid.invalid && maxInvestmentTimeValid.touched">
+                Please enter Max Investment
+            </span><br>
 
-            Profit Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="profitRatio" placeholder="Enter Profit Ratio"><br>
+            Minimum Age<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="minAge" placeholder="Enter Minimum Age">
+            <span *ngIf="minAgeValid && minAgeValid.invalid && minAgeValid.touched">
+                Please enter min age
+            </span><br>
 
-            Registration Commission Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="registrationCommRatio" placeholder="Enter Register Commission Ratio"><br>
+            Maximum Age<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="maxAge" placeholder="Enter Maximum Age">
+            <span *ngIf="maxAgeValid && maxAgeValid.invalid && maxAgeValid.touched">
+                Please enter Max age
+            </span><br>
 
-            Installment Commission Ratio:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="installmentCommRatio" placeholder="Enter Installment Commission Ratio"><br>
+            Profit Ratio<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="profitRatio" placeholder="Enter Profit Ratio">
+            <span *ngIf="profitRatioValid && profitRatioValid.invalid && profitRatioValid.touched">
+                This filed is required
+            </span><br>
+
+            Registration Commission Ratio<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="registrationCommRatio" placeholder="Enter Register Commission Ratio">
+            <span *ngIf="registrationCommRatioValid && registrationCommRatioValid.invalid && registrationCommRatioValid.touched">
+                This filed is required
+            </span><br>
+
+            Installment Commission Ratio<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="installmentCommRatio" placeholder="Enter Installment Commission Ratio">
+            <span *ngIf="installmentCommRatioValid && installmentCommRatioValid.invalid && installmentCommRatioValid.touched">
+                This filed is required
+            </span><br>
 
             <!-- Scheme Id:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="schemeId" placeholder="Enter Scheme ID"><br> -->
 
@@ -36,6 +70,9 @@
                         {{ scheme.schemeName }}
                     </mat-option>
                 </mat-select>
+                <span *ngIf="schemeIdValid && schemeIdValid.invalid && schemeIdValid.touched">
+                    Please select a scheme name
+                </span>
             </mat-form-field><br>
            
             

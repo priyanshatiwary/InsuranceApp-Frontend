@@ -16,18 +16,44 @@ export class UpdatePolicyComponent {
     
   updateInsurancePolicy= new FormGroup({
     policyNo:new FormControl(''),
-    issueDate:new FormControl(''),
-    maturityDate:new FormControl(''),
-    premiumType:new FormControl(''),
-    premiumAmount:new FormControl(''),
-    sumAssured:new FormControl(''),
-    status:new FormControl(''),
-    isActive:new FormControl(''),
-    schemeId:new FormControl(''),
-    customerId:new FormControl(''),
+    issueDate:new FormControl('', Validators.required),
+    maturityDate:new FormControl('', Validators.required),
+    premiumType:new FormControl('', Validators.required),
+    premiumAmount:new FormControl('', Validators.required),
+    sumAssured:new FormControl('', Validators.required),
+    status:new FormControl('', Validators.required),
+    isActive:new FormControl('', Validators.required),
+    schemeId:new FormControl('', Validators.required),
+    customerId:new FormControl('', Validators.required),
  
   });
-  
+  get issueDateValid(){
+    return this.updateInsurancePolicy.get('issueDate')
+  }
+  get maturityDateValid(){
+    return this.updateInsurancePolicy.get('maturityDate')
+  }
+  get premiumTypeValid(){
+    return this.updateInsurancePolicy.get('premiumType')
+  }
+  get premiumAmountValid(){
+    return this.updateInsurancePolicy.get('premiumAmount')
+  }
+  get sumAssuredValid(){
+    return this.updateInsurancePolicy.get('sumAssured')
+  }
+  get statusValid(){
+    return this.updateInsurancePolicy.get('status')
+  }
+  get isActiveValid(){
+    return this.updateInsurancePolicy.get('isActive')
+  }
+  get schemeIdValid(){
+    return this.updateInsurancePolicy.get('schemeId')
+  }
+  get customerIdValid(){
+    return this.updateInsurancePolicy.get('customerId')
+  }
   onDateChange(){  
     var issueDate = this.updateInsurancePolicy.controls['issueDate'].value;
     var maturityDate = this.updateInsurancePolicy.controls['maturityDate'].value;

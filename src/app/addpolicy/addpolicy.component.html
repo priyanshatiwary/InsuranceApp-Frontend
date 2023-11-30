@@ -4,53 +4,73 @@
     <h2 mat-dialog-title>Add Insurance Policy</h2>
     <mat-dialog-content class="mat-typography">
         <br>
-        <form [formGroup]="addInsurancePolicy" 
-        (ngSubmit)="addNewInsurancePolicy(addInsurancePolicy.value)" class="example-form">
-        <mat-form-field>
-            Issue Date: &nbsp;<input matInput [matDatepicker]="issueDatePicker" formControlName="issueDate" (dateChange)="onDateChange();" [min]="today" >
-            <mat-datepicker-toggle matSuffix [for]="issueDatePicker"></mat-datepicker-toggle>
-            <mat-datepicker #issueDatePicker></mat-datepicker>
-          </mat-form-field>
-            <br>
-        <mat-form-field>
-            Maturity Date :&nbsp;<input matInput [matDatepicker]="maturityDatePicker" formControlName="maturityDate" (dateChange)="onDateChange();" [min]="today" >
-            <mat-datepicker-toggle matSuffix [for]="maturityDatePicker"></mat-datepicker-toggle>
-            <mat-datepicker #maturityDatePicker></mat-datepicker>
-          </mat-form-field>
+        <form [formGroup]="addInsurancePolicy" (ngSubmit)="addNewInsurancePolicy(addInsurancePolicy.value)"
+            class="example-form">
+            <mat-form-field>
+
+                Issue Date<span>*</span>:<input matInput [matDatepicker]="issueDatePicker" formControlName="issueDate"
+                    (dateChange)="onDateChange();" [min]="today">
+                <mat-datepicker-toggle matSuffix [for]="issueDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #issueDatePicker></mat-datepicker>
+                <span *ngIf="issueDateValid && issueDateValid.invalid && issueDateValid.touched">
+                    Please enter issue date</span>
+            </mat-form-field>
             <br>
 
-            
+            <mat-form-field>
+                Maturity Date <span>*</span>:<input matInput [matDatepicker]="maturityDatePicker"
+                    formControlName="maturityDate" (dateChange)="onDateChange();" [min]="today">
+                <mat-datepicker-toggle matSuffix [for]="maturityDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #maturityDatePicker></mat-datepicker>
+                <span *ngIf="maturityDateValid && maturityDateValid.invalid && maturityDateValid.touched">
+                    Please enter maturity date</span>
+            </mat-form-field>
+            <br>
 
-            Premium Type:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="premiumType" placeholder="Enter Premium Type"><br>
+            Premium Type<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="text"
+                formControlName="premiumType" placeholder="Enter Premium Type">
+                <span *ngIf="premiumTypeValid && premiumTypeValid.invalid && premiumTypeValid.touched">This filed is required</span><br>
 
-            Premium Amount:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="premiumAmount" placeholder="Enter Premium Amount"><br>
+            Premium Amount<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number"
+                formControlName="premiumAmount" placeholder="Enter Premium Amount">
+                <span *ngIf="premiumAmountValid && premiumAmountValid.invalid && premiumAmountValid.touched">This filed is required</span><br>
 
-            Sum Assured:<input class="form-control" id="exampleFormControlInput1" type="number" formControlName="sumAssured" placeholder="Enter Sum Assured"><br>
+            Sum Assured<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="number"
+                formControlName="sumAssured" placeholder="Enter Sum Assured">
+                <span *ngIf="sumAssuredValid && sumAssuredValid.invalid && sumAssuredValid.touched">This filed is required</span><br>
 
-            Status:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="status" placeholder="Enter Status"><br>
+            Status<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="text" formControlName="status"
+                placeholder="Enter Status">
+                <span *ngIf="statusValid && statusValid.invalid && statusValid.touched">This filed is required</span><br>
 
-            Scheme Id:<input class="form-control" id="exampleFormControlInput1" type="hidden" formControlName="schemeId" placeholder="Enter scheme Id"><br>
+            <input class="form-control" id="exampleFormControlInput1" type="hidden" formControlName="schemeId"
+                placeholder="Enter scheme Id">
+                <span *ngIf="schemeIdValid && schemeIdValid.invalid && schemeIdValid.touched"></span><br>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Select Scheme</mat-label>
                 <mat-select formControlName="schemeId" type="number">
-                    <mat-option *ngFor="let scheme of schemeList" [value]="scheme.schemeId" >
+                    <mat-option *ngFor="let scheme of schemeList" [value]="scheme.schemeId">
                         {{ scheme.schemeName }}
                     </mat-option>
                 </mat-select>
+                <span *ngIf="schemeIdValid && schemeIdValid.invalid && schemeIdValid.touched">This filed is required</span>
+                
             </mat-form-field><br>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Select Customer</mat-label>
-                <mat-select formControlName="customerId" >
-                    <mat-option *ngFor="let cust of custList" [value]="cust.customerId" >
+                <mat-select formControlName="customerId">
+                    <mat-option *ngFor="let cust of custList" [value]="cust.customerId">
                         {{ cust.firstName }}
                     </mat-option>
                 </mat-select>
+                <span *ngIf="customerIdValid && customerIdValid.invalid && customerIdValid.touched">This filed is required</span>
             </mat-form-field><br>
 
-            
-            Is Active:&nbsp;<input class="form-check-input" placeholder="IsActive" type="radio" formControlName="isActive" value="true">&nbsp;True&nbsp;&nbsp;
+
+            Is Active:&nbsp;<input class="form-check-input" placeholder="IsActive" type="radio"
+                formControlName="isActive" value="true">&nbsp;True&nbsp;&nbsp;
             <input class="form-check-input" type="radio" formControlName="isActive" value="false">&nbsp;False<br><br>
 
             <button>Submit</button>
@@ -64,4 +84,3 @@
 
     </mat-dialog-actions>
 </div>
-

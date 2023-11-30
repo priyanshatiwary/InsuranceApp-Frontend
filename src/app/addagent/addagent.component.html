@@ -3,31 +3,41 @@
   <mat-dialog-content class="mat-typography">
       <br>
       <form [formGroup]="signupAgentForm" (ngSubmit)=" createAgent(signupAgentForm.value)" class="example-form">
-          First Name: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter first name" formControlName = "firstName">
+          First Name<span>*</span>: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter first name" formControlName = "firstName">
           <span *ngIf="firstNameValidator && firstNameValidator.invalid && firstNameValidator.touched">
             Please enter valid first name</span>
           <br><br>
-          Last Name: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter last name" formControlName = "lastName">
+          Last Name<span>*</span>:<input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter last name" formControlName = "lastName">
           <span *ngIf="lastNameValidator && lastNameValidator.invalid && lastNameValidator.touched">
            please enter valid last name</span>
           <br><br>
-          Qualification: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter qualification" formControlName = "qualification">
+          Qualification<span>*</span>: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter qualification" formControlName = "qualification">
           <span *ngIf="qualificationValidator && qualificationValidator.invalid && qualificationValidator.touched">
             Please enter valid qualification</span>
           <br><br>
-          E-Mail: <input class="form-control" id="exampleFormControlInput1" type="email" placeholder="Enter email address" formControlName = "email">
+          E-Mail<span>*</span>: <input class="form-control" id="exampleFormControlInput1" type="email" placeholder="Enter email address" formControlName = "email">
           <span *ngIf="emailValidator && emailValidator.invalid && emailValidator.touched">
             Please enter vaild emailId</span>
           <br><br>
-          Mobile No: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter phone no." formControlName = "mobileNo">
+          Mobile No<span>*</span>: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter phone no." formControlName = "mobileNo">
           <span *ngIf="mobileNoValidator && mobileNoValidator.invalid && mobileNoValidator.touched">
             Please enter valid mobile number</span>
           <br><br>
-          User Id: <input class="form-control" id="exampleFormControlInput1" type="number" placeholder="Enter User Id" formControlName = "userId">
-          <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">
-            Please enter user id properly</span>
-          <br><br>
-          Commission Earned: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter commission earned" formControlName = "commissionEarned">
+
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Select Agent User Name</mat-label>
+            <mat-select formControlName="userId" type="number">
+                <mat-option *ngFor="let user of userLists" [value]="user.userId">
+                    {{ user.userName }}
+                </mat-option>
+            </mat-select>
+            <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">This filed is required</span>
+        </mat-form-field><br>
+
+
+
+          Commission Earned<span>*</span>: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter commission earned" formControlName = "commissionEarned">
           <span *ngIf="commissionEarnedValidator && commissionEarnedValidator.invalid && commissionEarnedValidator.touched">
             Please enter proper commission earned value
           </span>

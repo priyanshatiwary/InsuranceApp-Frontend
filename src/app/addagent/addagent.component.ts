@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AgentService } from '../services/agent-services.service';
+import { UserServiceService } from '../services/user-service.service';
 
 
 
@@ -47,7 +48,13 @@ export class AddagentComponent {
   get isActiveValidator() {
     return this.signupAgentForm.get('isActive')
   }
-  constructor(private auth: AgentService, private router: Router) { }
+
+  userLists:any
+  constructor(private auth: AgentService, private router: Router,private userSerive:UserServiceService) { 
+    this.userSerive.getAllAgentUser().subscribe((data)=>{
+      this.userLists=data
+    })
+  }
 
   createAgent(formData: any) {
     console.log(formData)
@@ -55,10 +62,22 @@ export class AddagentComponent {
     this.auth.addAgent(formData).subscribe({
       next:(response)=>{
         alert("Agent added successfully")
+        window.location.reload()
       },
       error:(err:HttpErrorResponse)=>{
-        alert("Please put proper values")
-        console.log(err)
+        let errorMessage: string;
+
+      // Check if the error message is in the response body
+      if (err.error instanceof ErrorEvent) {
+        // A client-side or network error occurred.
+        errorMessage = `An error occurred: ${err.error.message}`;
+      } else {
+        // The backend returned an unsuccessful response code.
+        errorMessage = `${err.status}: ${err.error.Message}`;
+      }
+
+      alert(errorMessage);
+      console.error(err);
       }
     })
   }

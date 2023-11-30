@@ -5,51 +5,64 @@
             <option *ngFor="let insurancePolicyNo of insurancePolicyData" value="{{insurancePolicyNo?.policyNo}}">{{insurancePolicyNo.policyNo}}</option>
         </select>
         <form [formGroup]="updateInsurancePolicy" (ngSubmit)="updateInsurancePolicyData(updateInsurancePolicy.value)" class="example-form">
-            Policy Number:<input class="form-control" type="number" formControlName="policyNo" [(ngModel)]="policy.policyNo"  placeholder="Policy Number"><br>
+            <input class="form-control" type="hidden" formControlName="policyNo" [(ngModel)]="policy.policyNo"  placeholder="Policy Number"><br>
 
             <mat-form-field>
-                Issue Date:&nbsp;<input matInput [matDatepicker]="issueDatePicker" formControlName="issueDate" [(ngModel)]="policy.issueDate" (dateChange)="onDateChange();" [min]="today" >
+                Issue Date<span>*</span>:<input matInput [matDatepicker]="issueDatePicker" formControlName="issueDate" [(ngModel)]="policy.issueDate" (dateChange)="onDateChange();" [min]="today" >
                 <mat-datepicker-toggle matSuffix [for]="issueDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #issueDatePicker></mat-datepicker>
+                <span *ngIf="issueDateValid && issueDateValid.invalid && issueDateValid.touched">
+                    Please enter issue date</span>
               </mat-form-field>
                 <br>
             <mat-form-field>
-                Maturity Date:&nbsp;<input matInput [matDatepicker]="maturityDatePicker" formControlName="maturityDate" [(ngModel)]="policy.maturityDate" (dateChange)="onDateChange();" [min]="today" >
+                Maturity Date<span>*</span>:<input matInput [matDatepicker]="maturityDatePicker" formControlName="maturityDate" [(ngModel)]="policy.maturityDate" (dateChange)="onDateChange();" [min]="today" >
                 <mat-datepicker-toggle matSuffix [for]="maturityDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #maturityDatePicker></mat-datepicker>
+                <span *ngIf="maturityDateValid && maturityDateValid.invalid && maturityDateValid.touched">
+                    Please enter maturity date</span>
               </mat-form-field>
                 <br>
 
-            Premium Type:<input class="form-control" type="text" formControlName="premiumType" [(ngModel)]="policy.premiumType" placeholder="premiumType"><br>
+            Premium Type<span>*</span>:<input class="form-control" type="text" formControlName="premiumType" [(ngModel)]="policy.premiumType" placeholder="premiumType"><span *ngIf="premiumTypeValid && premiumTypeValid.invalid && premiumTypeValid.touched">
+                Please enter premium type</span><br>
 
-            Premium Amount:<input class="form-control" type="number" formControlName="premiumAmount" [(ngModel)]="policy.premiumAmount" placeholder="premiumAmount"><br>
+            Premium Amount<span>*</span>:<input class="form-control" type="number" formControlName="premiumAmount" [(ngModel)]="policy.premiumAmount" placeholder="premiumAmount"><span *ngIf="premiumAmountValid && premiumAmountValid.invalid && premiumAmountValid.touched">
+                Please enter premium amount</span><br>
 
-            Sum Assured:<input class="form-control" type="number" formControlName="sumAssured" [(ngModel)]="policy.sumAssured" placeholder="sumAssured"><br>
+            Sum Assured<span>*</span>:<input class="form-control" type="number" formControlName="sumAssured" [(ngModel)]="policy.sumAssured" placeholder="sumAssured">
+            <span *ngIf="sumAssuredValid && sumAssuredValid.invalid && sumAssuredValid.touched">
+                Please enter sum assured</span><br>
             
             <input class="form-control" id="exampleFormControlInput1" type="hidden" formControlName="schemeId" placeholder="Enter scheme Id"><br>
 
-            Status:<input class="form-control" type="text" formControlName="status" [(ngModel)]="policy.status" placeholder="status"><br>
+            Status<span>*</span>:<input class="form-control" type="text" formControlName="status" [(ngModel)]="policy.status" placeholder="status">
+            <span *ngIf="statusValid && statusValid.invalid && statusValid.touched">
+                Please enter status</span><br>
 
 
             <mat-form-field class="example-full-width">
-                <mat-label>Select Scheme</mat-label>
+                <mat-label>Select Scheme<span>*</span>:</mat-label>
                 <mat-select formControlName="schemeId" type="number">
                     <mat-option *ngFor="let scheme of schemeList" [value]="scheme.schemeId" >
                         {{ scheme.schemeName }}
                     </mat-option>
                 </mat-select>
+                <span *ngIf="schemeIdValid && schemeIdValid.invalid && schemeIdValid.touched">
+                    Please select scheme name</span>
             </mat-form-field><br>
 
             <mat-form-field class="example-full-width">
-                <mat-label>Select Customer</mat-label>
+                <mat-label>Select Customer<span>*</span>:</mat-label>
                 <mat-select formControlName="customerId" >
                     <mat-option *ngFor="let cust of custList" [value]="cust.customerId" >
                         {{ cust.firstName }}
                     </mat-option>
                 </mat-select>
+                <span *ngIf="customerIdValid && customerIdValid.invalid && customerIdValid.touched">
+                    Please select customer </span>
             </mat-form-field><br>
 
-            
             
             IsActive:<input class="form-check-input" type="radio" formControlName="isActive" value="true" checked>&nbsp;True&nbsp;
             <input class="form-check-input" type="radio" formControlName="isActive" value="false">&nbsp;False<br><br>

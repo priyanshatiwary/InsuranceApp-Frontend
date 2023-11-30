@@ -1,3 +1,82 @@
-<app-logout-navigation></app-logout-navigation>
-<h4>Update Profile</h4>
-<app-footer></app-footer>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<div class="container custom-dialog">
+    <h2 mat-dialog-title>My Profile</h2>
+    <mat-dialog-content class="mat-typography">
+      <form [formGroup]="editEmpForm" (ngSubmit)="editEmp(editEmpForm.value)" class="example-form">
+  
+        <div class="form-group">
+          <!-- <label for="employeeId">Employee Id <span>*</span>:</label> -->
+          <input class="form-control" type="hidden" placeholder="Enter employee id" formControlName="employeeId"
+            [(ngModel)]="employee.employeeId">
+          <span *ngIf="employeeIdValidator && employeeIdValidator.invalid && employeeIdValidator.touched">
+            Please enter a valid employee id</span>
+        </div>
+  
+        <div class="form-group">
+          <label for="firstName">First Name <span>*</span>:</label>
+          <input class="form-control" type="text" placeholder="Enter first name" formControlName="firstName"
+            [(ngModel)]="employee.firstName">
+          <span *ngIf="firstNameValidator && firstNameValidator.invalid && firstNameValidator.touched">
+            Please enter first name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name <span>*</span>:</label>
+          <input class="form-control" type="text" placeholder="Enter last name" formControlName="lastName"
+            [(ngModel)]="employee.lastName">
+          <span *ngIf="lastNameValidator && lastNameValidator.invalid && lastNameValidator.touched">
+            Please enter last name</span>
+        </div>
+
+        
+        <div class="form-group">
+          <label for="mobileNo">Mobile Number <span>*</span>:</label>
+          <input class="form-control" type="number" placeholder="Enter Mobile Number" formControlName="mobileNo"
+            [(ngModel)]="employee.mobileNo">
+          <span *ngIf="mobileNoValidator && mobileNoValidator.invalid && mobileNoValidator.touched">
+            Please enter proper mobile number</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Id <span>*</span>:</label>
+          <input class="form-control" type="text" placeholder="Enter Email Id" formControlName="email"
+            [(ngModel)]="employee.email">
+          <span *ngIf="emailValidator && emailValidator.invalid && emailValidator.touched">
+            Please enter valid email id</span>
+        </div>
+        
+        <div class="form-group">
+          <!-- <label for="salary">salary <span>*</span>:</label> -->
+          <input class="form-control" type="hidden" placeholder="Enter Salary" formControlName="salary"
+            [(ngModel)]="employee.salary">
+          <span *ngIf="salaryValidator && salaryValidator.invalid && salaryValidator.touched">
+            Please enter salary</span>
+        </div>
+        
+        <div class="form-group">
+          <!-- <label for="userId">User Id <span>*</span>:</label> -->
+          <input class="form-control" type="hidden" placeholder="Enter user id" formControlName="userId"
+            [(ngModel)]="employee.userId">
+          <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">
+            Please enter user id</span>
+        </div>
+          
+        <div class="form-group">
+          <!-- <label for="isActive">Active:</label> -->
+          <input class="form-check-input" type="hidden" formControlName="isActive">
+          <span *ngIf="isActiveValidator && isActiveValidator.invalid && isActiveValidator.touched">
+            Please check the box</span>
+        </div>
+  
+        <div class="form-actions">
+          <button class="btn btn-danger" type="submit">Update</button>&nbsp;&nbsp;
+          <button class="btn btn-danger" mat-dialog-close>Close</button>
+        </div>
+      </form>
+    </mat-dialog-content>
+  </div>
+  

@@ -7,9 +7,10 @@
         </select>
         <form [formGroup]="deleteInsuranceScheme" (ngSubmit)="deleteInsuranceSchemeData(deleteInsuranceScheme.value)" class="example-form">
             <input class="form-control" type="hidden" formControlName="schemeId" [(ngModel)]="scheme.schemeId" placeholder="schemeId"><br>
-            Scheme Name :<input class="form-control" type="name" formControlName="schemeName" [(ngModel)]="scheme.schemeName" placeholder="Scheme Name"><br>
+
+            Scheme Name <span>*</span>:<input class="form-control" type="name" formControlName="schemeName" [(ngModel)]="scheme.schemeName" placeholder="Scheme Name"><br>
             
-            Plan Name:&nbsp;&nbsp;<input class="form-control" type="text" formControlName="planName" [(ngModel)]="scheme.planName" placeholder="Plan Name "><br>
+            Plan Name<span>*</span>:<input class="form-control" type="text" formControlName="planName" [(ngModel)]="scheme.planName" placeholder="Plan Name "><br>
             <!-- <input class="form-check-input" type="radio" formControlName="isActive" value="true" checked>&nbsp;True&nbsp;
             <input class="form-check-input" type="radio" formControlName="isActive" value="false">&nbsp;False<br><br> -->
             <button mat-raised-button color="red">Delete</button>

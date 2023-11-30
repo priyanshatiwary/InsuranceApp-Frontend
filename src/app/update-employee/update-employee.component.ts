@@ -14,7 +14,7 @@ export class UpdateEmployeeComponent {
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    mobileNo: new FormControl('', Validators.required),
+    mobileNo: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
     userId: new FormControl('', Validators.required),
     salary: new FormControl('', Validators.required),
     isActive: new FormControl('', Validators.required),

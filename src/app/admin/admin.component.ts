@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
 
@@ -7,12 +7,39 @@ import { Router } from '@angular/router';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   adminName: any;
-
+  roleName:any
   constructor(private data: DataService, private router: Router) {
     this.adminName = data.userName;
+    this.roleName = data.roleName;
   }
+
+  ngOnInit():void{
+    var token = localStorage.getItem('token')
+    console.log("token in admin ts",token)
+    var role = localStorage.getItem('role')
+    console.log("role in admin ts",role)
+    if(token==null){
+      alert("Please Login")
+      this.router.navigateByUrl('/login')
+    }
+    else if(role!='Admin'){
+      alert("Please login as Admin")
+      this.router.navigateByUrl('/login')
+    }
+
+
+  }
+  
+  getRoleName(){
+    
+    if(this.roleName=='Admin')
+      return true
+    else 
+      return false
+  }
+  
   navigateTo(route: string): void {
     this.router.navigate([`/admin/${route}`]);
   }
@@ -37,48 +64,8 @@ export class AdminComponent {
   openClaimDetail(){
     this.router.navigateByUrl('/view-claim');
   }
-  /*
-  navigateTo(option: string) {
-    switch (option) {
-      case 'manage-agent':
-        this.router.navigate(['/admin/manage-agent']);
-        break;
-      case 'manage-employee':
-        this.router.navigate(['/admin/manage-employee']);
-        break;
-      case 'manage-insurance-plan':
-        this.router.navigate(['/admin/manage-insurance-plan']);
-        break;
-      case 'manage-insurance-scheme':
-        this.router.navigate(['/admin/manage-insurance-scheme']);
-        break;
-      // Add more cases as needed for other options
-
-      default:
-        // Handle default case or do nothing
-        break;
-        
-    }
-    
-  }
-  */
+  
 }
 
 
 
-/*
-import { Component } from '@angular/core';
-import { DataService } from '../services/data.service';
-
-@Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
-})
-export class AdminComponent {
-  adminName:any
-  constructor(private data:DataService){
-    this.adminName= data.userName
-  }
-}
-*/

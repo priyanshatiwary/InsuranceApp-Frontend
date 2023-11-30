@@ -83,7 +83,7 @@ export class UpdateCustomerComponent {
     formData.isActive = formData.isActive === 'true';
     this.custService.updateCustomer(formData).subscribe({
       next:(response)=>{
-        alert("Customer added successfully")
+        alert("Customer updated successfully")
         window.location.reload();
 
       },
