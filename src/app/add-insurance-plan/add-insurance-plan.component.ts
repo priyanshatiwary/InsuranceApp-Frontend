@@ -31,6 +31,7 @@ export class AddInsurancePlanComponent {
 
       },
       error:(errorResponse:HttpErrorResponse)=>{
+        alert(`${errorResponse.error.Message}`)
         console.log(errorResponse)
       }
     })

@@ -54,9 +54,7 @@ export class AddpolicyComponent {
     return this.addInsurancePolicy.get('customerId')
   }
 
-  schemeList:any
-  custList:any
-
+  
   onDateChange(){  
     var issueDate = this.addInsurancePolicy.controls['issueDate'].value;
     var maturityDate = this.addInsurancePolicy.controls['maturityDate'].value;
@@ -69,6 +67,8 @@ export class AddpolicyComponent {
       }
     }  
   }
+  schemeList:any
+  custList:any
   constructor(private insuranceService:PolicyService,private schemeService:InsuranceSchemeService,
     private custService:CustomerService){
 
@@ -91,8 +91,8 @@ export class AddpolicyComponent {
 
       },
       error:(errorResponse:HttpErrorResponse)=>{
+        alert(`${errorResponse.error.Message}`)
         console.log(errorResponse)
-        alert("Please enter proper Data")
       }
     })
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { InsuranceSchemeService } from '../services/insurance-scheme.service';
 import { InsurancePlanService } from '../services/insurance-plan.service';
 import { Router } from '@angular/router';
@@ -6,50 +6,41 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { AddInsuranceSchemeComponent } from '../add-insurance-scheme/add-insurance-scheme.component';
 import { UpdateInsuranceSchemeComponent } from '../update-insurance-scheme/update-insurance-scheme.component';
 import { DeleteInsuranceSchemeComponent } from '../delete-insurance-scheme/delete-insurance-scheme.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-insurance-scheme',
   templateUrl: './insurance-scheme.component.html',
   styleUrls: ['./insurance-scheme.component.css']
 })
-export class InsuranceSchemeComponent {
+
+export class InsuranceSchemeComponent implements OnInit {
+  schemeData: any;
   title='Welcome to Insurance scheme detail'
   insuranceData:any;
   planList:any
-  constructor(private insuranceService : InsuranceSchemeService,
-    private planService:InsurancePlanService, 
-    private router:Router,private dialog:MatDialog){
+  displayedColumns: string[] = ['schemeId', 'schemeName', 'planName', 'isActive'];
+  dataSource!: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-    this.insuranceService.getAllInsuranceScheme().subscribe((data)=>{
-      this.insuranceData=data
-      console.log("InsuranceData:",this.insuranceData)
-    })
+  constructor(private insuranceSchemeService:InsuranceSchemeService,private dialog: MatDialog,private router:Router) {}
 
-    this.planService.getAllInsurancePlan().subscribe((plans)=>{
-      this.planList=plans
-    })
+  ngOnInit(): void {
+    this.insuranceSchemeService.getAllInsuranceScheme().subscribe((data) => {
+      this.schemeData = data;
+      console.log('Employee Data:', this.schemeData);
+      this.dataSource = new MatTableDataSource<any>(this.schemeData);
+      this.dataSource.paginator = this.paginator;
+    },
+    (error) => {
+    console.error('Error fetching agent data:', error);
+    });
   }
+  
 
-  getAllInsuranceScheme(){
-    this.insuranceService.getAllInsuranceScheme().subscribe((data)=>{
-      this.insuranceData=data
-      next:(res:any)=>{
-        
-      }
-      error:(err:any)=>{
-        console.log(err)
-        alert("Problem occur while fetching data")
-      }
-    })
-  }
   openAddInsuranceSchemeDialog(){
-    const dialogRef=this.dialog.open(AddInsuranceSchemeComponent);
-    console.log("DaailogRef:",dialogRef)
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-
-    // });
+    this.dialog.open(AddInsuranceSchemeComponent)
   }
-
   openUpdateInsuranceSchemeDialog(){
     this.dialog.open(UpdateInsuranceSchemeComponent)
   }
@@ -57,5 +48,4 @@ export class InsuranceSchemeComponent {
   openDeleteInsuranceSchemeDialog(){
     this.dialog.open(DeleteInsuranceSchemeComponent)
   }
-
 }

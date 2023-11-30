@@ -21,29 +21,29 @@
     &nbsp;&nbsp; -->
 </mat-toolbar>
 <div class="container"><br>
-    <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> View Commision</h1>
-    <div style="float: left; width: 100%;">
-        <table class="table table-striped table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Commision Id</th>
-                    <th>Insurance Plan Name</th>
-                    <th>Agent Name</th>
-                    <th>Customer Name</th>
-                    <th>Commision Amount</th>
-                    <th>Is Active</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let commision of commisionData">
-                    <td>{{ commision.id }}</td>
-                    <td>{{ commision.planName }}</td>
-                    <td>{{ commision.agentName }}</td>
-                    <td>{{ commision.customerName }}</td>
-                    <td>{{ commision.commisionAmount }}</td>   
-                    <td>{{ commision.isActive?'Yes':'No' }}</td>   
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <!-- <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;"> Manage Agent</h1> -->
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Agent Table Columns -->
+
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column | titlecase }} </th>
+    <td mat-cell *matCellDef="let commission">
+        {{ column === 'isActive' ? (commission[column] ? 'Yes' : 'No') : commission[column] }}
+    </td>
+    </ng-container>
+
+
+      <!-- Header Row -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      
+      <!-- Data Rows -->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+<br>
+    <!-- Paginator -->
+<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
 </div>

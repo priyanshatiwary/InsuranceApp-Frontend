@@ -23,10 +23,20 @@
           <span *ngIf="mobileNoValidator && mobileNoValidator.invalid && mobileNoValidator.touched">
             Please enter valid mobile number</span>
           <br><br>
-          User Id<span>*</span>: <input class="form-control" id="exampleFormControlInput1" type="number" placeholder="Enter User Id" formControlName = "userId">
-          <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">
-            Please enter user id properly</span>
-          <br><br>
+
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Select Agent User Name</mat-label>
+            <mat-select formControlName="userId" type="number">
+                <mat-option *ngFor="let user of userLists" [value]="user.userId">
+                    {{ user.userName }}
+                </mat-option>
+            </mat-select>
+            <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">This filed is required</span>
+        </mat-form-field><br>
+
+
+
           Commission Earned<span>*</span>: <input class="form-control" id="exampleFormControlInput1" type="text" placeholder="Enter commission earned" formControlName = "commissionEarned">
           <span *ngIf="commissionEarnedValidator && commissionEarnedValidator.invalid && commissionEarnedValidator.touched">
             Please enter proper commission earned value

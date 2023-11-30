@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { AddagentComponent } from '../addagent/addagent.component';
 import { UpdateAgentComponent } from '../update-agent/update-agent.component';
 import { DeleteAgentComponent } from '../delete-agent/delete-agent.component';
 import { AgentService } from '../services/agent-services.service';
 import { DataService } from '../services/data.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -13,33 +16,36 @@ import { DataService } from '../services/data.service';
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.css']
 })
-export class AgentComponent {
-  agentData: any
+export class AgentComponent implements OnInit{
+
+  agentData: any;
+  displayedColumns: string[] = ['agentId', 'firstName', 'lastName', 'qualification', 'email', 'mobileNo', 'commissionEarned', 'isActive'];
+  dataSource!: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+ 
   roleName:any
   constructor(private agentService: AgentService, private router: Router, private dialog: MatDialog,
     private data: DataService) {
     //debugger
     this.roleName = data.roleName;
     console.log("agent roll name",this.roleName)
+    
+  }
+
+  ngOnInit(): void {
     this.agentService.getAllAgent().subscribe((data) => {
       this.agentData = data;
-      console.log("Data", data);
-
-    });
+      console.log('Agent Data:', this.agentData);
+      this.dataSource = new MatTableDataSource<any>(this.agentData);
+      this.dataSource.paginator = this.paginator;
+      error:(err:HttpErrorResponse)=>{
+        console.log(err)
+      }
+    })
   }
-  // editAgent(agent: any) {
-
-  //   const dialogRef = this.dialog.open(UpdateAgentComponent, {
-  //     data: agent // Pass the agent data to the dialog
-  //   });
-
-  // }
-  // deleteAgent(agent: any) {
-
-  // }
+  
   isAdmin(){
-    // this.data.roleName=this.roleName
-    // console.log("adminRole:",this.roleName)
+
     if(this.roleName=='Admin')
       return true
     else 

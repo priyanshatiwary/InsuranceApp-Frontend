@@ -82,6 +82,8 @@ export class AddSchemeDetailComponent {
     }
 
   addNewSchemeDetail(data: any) {
+    data.isActive = data.isActive === 'true';
+
     this.detailService.addNewDetail(data).subscribe({
       next:(result)=>{
         alert("New Insurance Scheme Added Successfully!")
@@ -90,7 +92,7 @@ export class AddSchemeDetailComponent {
         window.location.reload()
       },
       error:(errorResponse:HttpErrorResponse)=>{
-        alert("Please put proper data")
+        alert(`${errorResponse.error.Message}`)
         console.log(errorResponse)
       }
     })

@@ -95,6 +95,7 @@ import { AddLocationComponent } from './add-location/add-location.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -185,7 +186,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
     MatButtonModule,MatDialogModule,MatIconModule,MatToolbarModule,FormsModule,MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule,MatSelectModule,MatPaginatorModule
+    MatNativeDateModule,MatSelectModule,MatPaginatorModule,MatTableModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass: JwtInterceptor,

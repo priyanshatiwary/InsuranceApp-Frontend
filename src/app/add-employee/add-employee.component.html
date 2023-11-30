@@ -30,12 +30,15 @@
             </span>
             <br><br>
 
-            <label for="userId">User Id <span>*</span>:</label>
-            <input class="form-control" type="text" placeholder="Enter User Id" formControlName="userId">
-            <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">
-                Please enter user id properly
-            </span>
-            <br><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Select User Name</mat-label>
+                <mat-select formControlName="userId" type="number">
+                    <mat-option *ngFor="let user of userLists" [value]="user.userId">
+                        {{ user.userName }}
+                    </mat-option>
+                </mat-select>
+                <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">This filed is required</span>
+            </mat-form-field><br>
 
             <label for="salary"> Salary <span>*</span>:</label>
             <input class="form-control" type="number" placeholder="Enter salary" formControlName="salary">

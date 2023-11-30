@@ -53,7 +53,11 @@ export class LoginComponent {
         console.log(this.role)
         //store in LS
         localStorage.setItem("token", this.myToken)
+        localStorage.setItem("role",this.role.roleName)
 
+
+
+        
         //access object from response body
         this.user=response.body;
         console.log("user",this.user)

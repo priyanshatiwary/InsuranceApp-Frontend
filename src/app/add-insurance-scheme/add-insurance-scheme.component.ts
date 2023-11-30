@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { InsuranceSchemeService } from '../services/insurance-scheme.service';
 import { InsurancePlanService } from '../services/insurance-plan.service';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { AddSchemeDetailComponent } from '../add-scheme-detail/add-scheme-detail.component';
 @Component({
   selector: 'app-add-insurance-scheme',
   templateUrl: './add-insurance-scheme.component.html',
@@ -27,7 +29,7 @@ export class AddInsuranceSchemeComponent {
     return this.addInsuranceScheme.get('isActive')
   }
   planList:any
-  constructor(private insuranceService : InsuranceSchemeService, private planservice:InsurancePlanService){
+  constructor(private insuranceService : InsuranceSchemeService, private planservice:InsurancePlanService,private router:Router,private dialog:MatDialog){
     this.insuranceService.getAllInsuranceScheme().subscribe((data)=>{
       this.planList=data
     })
@@ -35,19 +37,25 @@ export class AddInsuranceSchemeComponent {
 
   addNewInsuranceScheme(data:any){
     console.log("DAta : ",data)
+    data.isActive = data.isActive === 'true';
+
     this.insuranceService.addNewInsuranceScheme(data).subscribe({
       
       next:(result)=>{
         alert("New Insurance Scheme Added Successfully!")
         console.log("REsult",result)
         this.addInsuranceScheme.reset()
-        window.location.reload();
+        // window.location.reload();
 
       },
       error:(errorResponse:HttpErrorResponse)=>{
-        alert("Please put proper data")
+        alert(`${errorResponse.error.Message}`)
         console.log(errorResponse)
       }
     })
+  }
+  //navigate to enter scheme details
+  navigateToSchemeDetails(){
+    this.dialog.open(AddSchemeDetailComponent)
   }
 }
