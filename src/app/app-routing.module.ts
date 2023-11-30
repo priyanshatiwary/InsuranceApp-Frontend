@@ -104,7 +104,7 @@ const routes: Routes = [
   
   //Employee Modules
 
-  { path: 'employee/manage-profile', component: ManageProfileComponent },
+  { path: 'manage-profile', component: ManageProfileComponent },
   { path: 'employee/manage-agent', component: ManageAgentComponent },
   { path: 'employee/manage-customer', component: ManageCustomerComponent },
   { path: 'employee/manage-document', component: ManageDocumentComponent },
