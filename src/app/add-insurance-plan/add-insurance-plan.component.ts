@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { InsurancePlanService } from '../services/insurance-plan.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -10,12 +10,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AddInsurancePlanComponent {
   addInsurancePlan = new FormGroup({
-    planName:new FormControl(''),
-    isActive:new FormControl('')
+    planName:new FormControl('',Validators.required),
+    isActive:new FormControl('',Validators.required)
   })
   constructor(private insuranceService:InsurancePlanService,private router:Router){}
 
-
+  get planNameValidator(){
+    return this.addInsurancePlan.get('planName')
+  }
+  
   addNewInsurancePlan(data:any){
     console.log("DAta : ",data)
     data.isActive = data.isActive === 'true';

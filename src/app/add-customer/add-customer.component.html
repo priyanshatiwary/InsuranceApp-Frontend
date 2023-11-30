@@ -3,68 +3,79 @@
     <mat-dialog-content class="mat-typography">
         <br>
         <form [formGroup]="customerForm" (ngSubmit)="createEmp(customerForm.value)" class="example-form">
-            First Name: <input class="form-control" type="text" placeholder="Enter first name" formControlName="firstName">
+            
+            <label for="firstName">First Name <span>*</span>:</label>
+            <input class="form-control" type="text" placeholder="Enter first name" formControlName="firstName">
             <span *ngIf="firstNameValidator && firstNameValidator.invalid && firstNameValidator.touched">
-                Please enter valid first name
-            </span>
-            <br><br>
-            Last Name: <input class="form-control" type="text" placeholder="Enter last name" formControlName="lastName">
-            <span *ngIf="lastNameValidator && lastNameValidator.invalid && lastNameValidator.touched">
-                please enter valid last name
+                Please enter first name
             </span>
             <br><br>
 
-            E-Mail: <input class="form-control" type="email" placeholder="Enter email address" formControlName="email">
+            <label for="lastName">Last Name <span>*</span>:</label>
+            <input class="form-control" type="text" placeholder="Enter last name" formControlName="lastName">
+            <span *ngIf="lastNameValidator && lastNameValidator.invalid && lastNameValidator.touched">
+                please enter last name
+            </span>
+            <br><br>
+
+            <label for="email">Email Id <span>*</span>:</label>
+            <input class="form-control" type="email" placeholder="Enter email address" formControlName="email">
             <span *ngIf="emailValidator && emailValidator.invalid && emailValidator.touched">
                 Please enter valid emailId
             </span>
             <br><br>
 
-            Mobile No: <input class="form-control" type="text" placeholder="Enter phone no." formControlName="mobileNo">
+            <label for="mobileNo">Mobile Number <span>*</span>:</label>
+            <input class="form-control" type="text" placeholder="Enter phone no." formControlName="mobileNo">
             <span *ngIf="mobileNoValidator && mobileNoValidator.invalid && mobileNoValidator.touched">
                 Please enter valid mobile number
             </span>
             <br><br>
 
-            State : <input class="form-control" type="text" placeholder="Enter State" formControlName="state">
+            <label for="state">State <span>*</span>:</label>
+            <input class="form-control" type="text" placeholder="Enter State" formControlName="state">
             <span *ngIf="stateValidator && stateValidator.invalid && stateValidator.touched">
                 Please put proper state
             </span>
             <br><br>
 
-            City : <input class="form-control" type="text" placeholder="Enter City" formControlName="city">
+            <label for="city"> City <span>*</span>:</label>
+            <input class="form-control" type="text" placeholder="Enter City" formControlName="city">
             <span *ngIf="cityValidator && cityValidator.invalid && cityValidator.touched">
                 Please put proper city
             </span>
             <br><br>
 
-            Nominee : <input class="form-control" type="text" placeholder="Enter Nominee" formControlName="nominee">
+            <label for="nominee">Nominee<span>*</span>:</label>
+            <input class="form-control" type="text" placeholder="Enter Nominee" formControlName="nominee">
             <span *ngIf="nomineeValidator && nomineeValidator.invalid && nomineeValidator.touched">
                 Please enter nominee
             </span>
             <br><br>
             
-            Nominee Relation : <input class="form-control" type="text" placeholder="Enter Nominee Relation" formControlName="nomineeRelation">
+            <label for="nominee">Nominee<span>*</span>:</label>
+            <input class="form-control" type="text" placeholder="Enter Nominee Relation" formControlName="nomineeRelation">
             <span *ngIf="nomineeRelationValidator && nomineeRelationValidator.invalid && nomineeRelationValidator.touched">
                 Please enter nominee relation
             </span>
             <br><br>
 
-            User Id: <input class="form-control" type="number" placeholder="Enter User Id" formControlName="userId">
+            <label for="userId">User Id <span>*</span>:</label>
+            <input class="form-control" type="number" placeholder="Enter User Id" formControlName="userId">
             <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">
                 Please put valid user id 
             </span>
             <br><br>
 
-            Agent Id: <input class="form-control" type="number" placeholder="Enter Agent Id" formControlName="agentId">
+            <label for="agentId">Agent Id <span>*</span>:</label>
+            <input class="form-control" type="number" placeholder="Enter Agent Id" formControlName="agentId">
             <span *ngIf="agentIdValidator && agentIdValidator.invalid && agentIdValidator.touched">
                 Please put valid agent id 
             </span>
             <br><br>
 
-            
-
-            Is Active: <input class="form-check-input"  type="checkbox" formControlName="isActive">
+            <label for="isActive">Is Active:</label>
+            <input class="form-check-input"  type="checkbox" formControlName="isActive">
             <span *ngIf="isActiveValidator && isActiveValidator.invalid && isActiveValidator.touched">
                 Please select checkbox
             </span>

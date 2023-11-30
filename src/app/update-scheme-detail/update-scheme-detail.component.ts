@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SchemeDetailService } from '../services/scheme-detail.service';
@@ -13,21 +13,63 @@ export class UpdateSchemeDetailComponent {
 
   updateSchemeDetail=new FormGroup({
     detailId:new FormControl(''),
-    schemeImage:new FormControl(''),
-    description:new FormControl(''),
-    minAmount:new FormControl(''),
-    maxAmount:new FormControl(''),
-    minInvestmentTime:new FormControl(''),
-    maxInvestmentTime:new FormControl(''),
-    minAge:new FormControl(''),
-    maxAge:new FormControl(''),
-    profitRatio:new FormControl(''),
-    registrationCommRatio:new FormControl(''),
-    installmentCommRatio:new FormControl(''),
-    isActive:new FormControl(''),
-    schemeId:new FormControl(''),
-    schemeName:new FormControl('')
+    schemeImage:new FormControl('',Validators.required),
+    description:new FormControl('',Validators.required),
+    minAmount:new FormControl('',Validators.required),
+    maxAmount:new FormControl('',Validators.required),
+    minInvestmentTime:new FormControl('',Validators.required),
+    maxInvestmentTime:new FormControl('',Validators.required),
+    minAge:new FormControl('',Validators.required),
+    maxAge:new FormControl('',Validators.required),
+    profitRatio:new FormControl('',Validators.required),
+    registrationCommRatio:new FormControl('',Validators.required),
+    installmentCommRatio:new FormControl('',Validators.required),
+    isActive:new FormControl('',Validators.required),
+    schemeId:new FormControl('',Validators.required),
+    schemeName:new FormControl('',Validators.required)
   })
+  get schemeImageValid(){
+    return this.updateSchemeDetail.get('schemeImage')
+  }
+  get descriptionValid(){
+    return this.updateSchemeDetail.get('description')
+  }
+  get minAmountValid(){
+    return this.updateSchemeDetail.get('minAmount')
+  }
+  get maxAmountValid(){
+    return this.updateSchemeDetail.get('maxAmount')
+  }
+  get minInvestmentTimeValid(){
+    return this.updateSchemeDetail.get('minInvestmentTime')
+  }
+  get maxInvestmentTimeValid(){
+    return this.updateSchemeDetail.get('maxInvestmentTime')
+  }
+  get minAgeValid(){
+    return this.updateSchemeDetail.get('minAge')
+  }
+  get maxAgeValid(){
+    return this.updateSchemeDetail.get('maxAge')
+  }
+  get profitRatioValid(){
+    return this.updateSchemeDetail.get('profitRatio')
+  }
+  get registrationCommRatioValid(){
+    return this.updateSchemeDetail.get('registrationCommRatio')
+  }
+  get installmentCommRatioValid(){
+    return this.updateSchemeDetail.get('installmentCommRatio')
+  }
+  get isActiveValid(){
+    return this.updateSchemeDetail.get('isActive')
+  }
+  get schemeIdValid(){
+    return this.updateSchemeDetail.get('schemeId')
+  }
+  get schemeNameValid(){
+    return this.updateSchemeDetail.get('schemeName')
+  }
   schemeDetailData:any
   detail:any=[{}]
   schemeList:any

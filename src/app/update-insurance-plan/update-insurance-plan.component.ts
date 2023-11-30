@@ -15,6 +15,11 @@ export class UpdateInsurancePlanComponent {
     planName:new FormControl('',Validators.required),
     isActive:new FormControl('',Validators.required)
   })
+  get planNameValid(){
+    return this.updateInsurancePlan.get('planName')
+  }
+
+  
    insurancePlanData:any
    plan:any=[{}]
   constructor(private insuranceService:InsurancePlanService,private router:Router){

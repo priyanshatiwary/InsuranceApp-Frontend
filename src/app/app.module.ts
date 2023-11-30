@@ -94,6 +94,7 @@ import { UpdateLocationComponent } from './update-location/update-location.compo
 import { AddLocationComponent } from './add-location/add-location.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 
 
@@ -164,6 +165,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ViewLocationComponent,
     UpdateLocationComponent,
     AddLocationComponent,
+    ViewProfileComponent,
 /*
     AddInsuranceSchemeComponent,
     UpdateInsuranceSchemeComponent,

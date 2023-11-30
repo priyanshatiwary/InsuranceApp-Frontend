@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <form>
     <mat-form-field>
-      <mat-label>Agent ID</mat-label>
+      <mat-label>Agent ID<span>*</span></mat-label>
       <mat-select [(ngModel)]="selectedAgentId" [ngModelOptions]="{ standalone: true }" placeholder="Select Agent ID">
         <mat-option *ngFor="let id of agentIds" [value]="id.agentId">
           {{ id.agentId }} - {{ id.firstName}}
@@ -10,7 +10,7 @@
       </mat-select>
     </mat-form-field>
   </form><br>
-  <p>Are you sure you want to delete this Employee?</p>
+  <p>Are you sure you want to delete this Agent?</p>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onCancelClick()">Cancel</button>

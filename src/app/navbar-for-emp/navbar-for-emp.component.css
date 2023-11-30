@@ -2,6 +2,7 @@
 nav{
     background-color: rgb(3, 45, 61);
     padding: 10px; 
+    align-items: center;
 }
 
 ul{

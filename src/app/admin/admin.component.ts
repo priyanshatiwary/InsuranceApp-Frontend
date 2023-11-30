@@ -9,10 +9,20 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent {
   adminName: any;
-
+  roleName:any
   constructor(private data: DataService, private router: Router) {
     this.adminName = data.userName;
+    this.roleName = data.roleName;
   }
+  
+  getRoleName(){
+    
+    if(this.roleName=='Admin')
+      return true
+    else 
+      return false
+  }
+  
   navigateTo(route: string): void {
     this.router.navigate([`/admin/${route}`]);
   }

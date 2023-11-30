@@ -11,15 +11,20 @@ import { AgentComponent } from '../agent/agent.component';
 export class EmployeeComponent {
 
   employeeName: any;
+  empId:any
 
   constructor(private data: DataService, private router: Router) {
     this.employeeName = data.userName;
+    
   }
   navigateTo(route: string): void {
     this.router.navigate([`/employee/${route}`]);
   }
   openCustomer(){
     this.router.navigateByUrl('/customer');
+  }
+  openviewCommission(){
+    this.router.navigateByUrl('/view-commision')
   }
 }
 

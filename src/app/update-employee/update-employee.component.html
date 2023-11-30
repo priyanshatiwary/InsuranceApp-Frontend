@@ -5,40 +5,40 @@
             <option *ngFor="let emp of empData" value="{{emp?.employeeId}}">{{emp.employeeId}}</option>
         </select>
         <form [formGroup]="editEmpForm" (ngSubmit)="editEmp(editEmpForm.value)" class="example-form">
-            Employee Id: <input class="form-control" type="number" placeholder="Enter employee id" formControlName="employeeId" [(ngModel)]="employee.employeeId">
+             <input class="form-control" type="hidden" placeholder="Enter employee id" formControlName="employeeId" [(ngModel)]="employee.employeeId">
             <span *ngIf="employeeIdValidator && employeeIdValidator.invalid && employeeIdValidator.touched">
                 Please enter valid employee id</span>
             <br><br>
-            First Name: <input class="form-control" type="text" placeholder="Enter first name" formControlName="firstName" [(ngModel)]="employee.firstName ">
+            First Name<span>*</span>: <input class="form-control" type="text" placeholder="Enter first name" formControlName="firstName" [(ngModel)]="employee.firstName ">
             <span *ngIf="firstNameValidator && firstNameValidator.invalid && firstNameValidator.touched">
                 Please enter valid first name</span>
             <br><br>
-            Last Name: <input class="form-control" type="text" placeholder="Enter last name" formControlName="lastName" [(ngModel)]="employee.lastName">
+            Last Name<span>*</span>: <input class="form-control" type="text" placeholder="Enter last name" formControlName="lastName" [(ngModel)]="employee.lastName">
             <span *ngIf="lastNameValidator && lastNameValidator.invalid && lastNameValidator.touched">
                 please enter a valid last name</span>
             <br><br>
-            E-Mail: <input class="form-control" type="email" placeholder="Enter email address" formControlName="email" [(ngModel)]="employee.email">
+            E-Mail<span>*</span>: <input class="form-control" type="email" placeholder="Enter email address" formControlName="email" [(ngModel)]="employee.email">
             <span *ngIf="emailValidator && emailValidator.invalid && emailValidator.touched">
                 please enter a valid e-mail address </span>
             <br><br>
-            Mobile No: <input class="form-control" type="text" placeholder="Enter phone no." formControlName="mobileNo" [(ngModel)]="employee.mobileNo">
+            Mobile No<span>*</span>: <input class="form-control" type="text" placeholder="Enter phone no." formControlName="mobileNo" [(ngModel)]="employee.mobileNo">
             <span *ngIf="mobileNoValidator && mobileNoValidator.invalid && mobileNoValidator.touched">
                 please enter a valid mobile no.</span>
             <br><br>
-            User Id: <input class="form-control" type="number" placeholder="Enter User Id" formControlName="userId" [(ngModel)]="employee.userId">
+             <input class="form-control" type="hidden" placeholder="Enter User Id" formControlName="userId" [(ngModel)]="employee.userId">
             <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">
                 please enter a valid user id</span>
-            <br><br>
-            Salary: <input class="form-control" type="number" placeholder="Enter salary"
+            
+            Salary<span>*</span>:<input class="form-control" type="number" placeholder="Enter salary"
                 formControlName="salary" [(ngModel)]="employee.salary">
             <span
                 *ngIf="salaryValidator && salaryValidator.invalid && salaryValidator.touched">
                 please enter a valid salary</span>
             <br><br>
-            Is Active:<input class="form-check-input" type="checkbox" formControlName="isActive">
+            <input class="form-check-input" type="hidden" formControlName="isActive">
             <span *ngIf="isActiveValidator && isActiveValidator.invalid && isActiveValidator.touched">
                 please check the box</span>
-            <br><br>
+        
 
             <button mat-raised-button color="warn" type="submit">Update</button>
         </form>

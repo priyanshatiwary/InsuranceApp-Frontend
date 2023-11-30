@@ -56,10 +56,17 @@ export class LoginComponent {
 
         //access object from response body
         this.user=response.body;
-
+        console.log("user",this.user)
+       
         //store user info in data service vars
      //   this.data.userId=this.user.userId
         this.data.userName=this.user.userName
+        this.data.roleName=this.role.roleName
+        console.log("Role Name: ", this.role.roleName);
+
+        this.data.loggedUserData=this.user
+        console.log("Logged user data:",this.user)
+
 
         //admin or emp??
         if(this.user.roleName=="Admin")
@@ -75,6 +82,9 @@ export class LoginComponent {
         console.log("ErrorResponse : ",errorResponse)
       }
     })
+  }
+  getRole(){
+    return this.role
   }
   logout(){
     localStorage.removeItem("token");

@@ -2,9 +2,8 @@
 <div mat-dialog-content>
   <form>
     <mat-form-field>
-      <mat-label>Employee ID</mat-label>
+      <mat-label>Employee ID<span>*</span></mat-label>
       <mat-select [(ngModel)]="selectedEmployeeId" [ngModelOptions]="{ standalone: true }" placeholder="Select Employee ID">
-        <!-- Assuming you have an array of employee IDs in your component -->
         <mat-option *ngFor="let id of employeeIds" [value]="id.employeeId">
           {{ id.employeeId }}-{{id.firstName}}
         </mat-option>

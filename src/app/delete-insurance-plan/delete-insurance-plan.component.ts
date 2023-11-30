@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { InsurancePlanComponent } from '../insurance-plan/insurance-plan.component';
 import { InsurancePlanService } from '../services/insurance-plan.service';
 import { Router } from '@angular/router';
@@ -11,9 +11,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class DeleteInsurancePlanComponent {
   deleteInsurancePlan= new FormGroup({
-    planId:new FormControl(''),
-    planName:new FormControl('')
+    planId:new FormControl('',Validators.required),
+    planName:new FormControl('',Validators.required)
   })
+  get planIdValid(){
+    return this.deleteInsurancePlan.get('planId')
+  }
+  get planNameValid(){
+    return this.deleteInsurancePlan.get('planName')
+  }
    insurancePlanData:any
    plan:any=[{}]
   constructor(private insuranceService:InsurancePlanService,private router:Router){

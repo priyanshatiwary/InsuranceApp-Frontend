@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup,FormControl} from'@angular/forms';
+import {FormGroup,FormControl, Validators} from'@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { InsuranceSchemeService } from '../services/insurance-scheme.service';
@@ -12,10 +12,20 @@ import { InsurancePlanService } from '../services/insurance-plan.service';
 export class AddInsuranceSchemeComponent {
   insuranceSchemeData:any
   addInsuranceScheme=new FormGroup({
-    schemeName:new FormControl(''),
-    planId:new FormControl(''),
+    schemeName:new FormControl('',Validators.required),
+    planId:new FormControl('',Validators.required),
     isActive:new FormControl('')
   })
+
+  get schemeNameValidator(){
+    return this.addInsuranceScheme.get('schemeName')
+  }
+  get planIdValidator(){
+    return this.addInsuranceScheme.get('planId')
+  }
+  get isActiveValidator(){
+    return this.addInsuranceScheme.get('isActive')
+  }
   planList:any
   constructor(private insuranceService : InsuranceSchemeService, private planservice:InsurancePlanService){
     this.insuranceService.getAllInsuranceScheme().subscribe((data)=>{

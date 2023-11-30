@@ -18,7 +18,7 @@ export class UpdateAgentComponent {
     lastName: new FormControl('', Validators.required),
     qualification: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    mobileNo: new FormControl('', Validators.required),
+    mobileNo: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
     userId: new FormControl('', Validators.required),
     commissionEarned: new FormControl('', Validators.required),
     isActive: new FormControl('', Validators.required),
@@ -74,6 +74,10 @@ export class UpdateAgentComponent {
         alert("Agent updated successfully")
         window.location.reload();
 
+      },
+      error:(err:HttpErrorResponse)=>{
+        alert("Error occur while updating agent")
+        console.log(err)
       }
     })
   }
